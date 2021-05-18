@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis GIFOS</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="preconnect" href="//fonts.gstatic.com">
+  <link rel="preconnect" href="//fonts.gstatic.com">
+  <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+
+    <div class="purple-line"></div>
+
+    <nav id="nav">
+
+      <a class="logo" href="index.html"><img id="logo" src="images/logo-mobile.svg" alt="Logo del sitio"></a>
+
+      <img id="burger" src="images/burger.svg" alt="Ícono menu desplegable">
+
+      <ul id="menu">
+
+        <li class="mont-bold"><a id="btn-dark-mode">Modo Nocturno</a></li>
+        <li class="mont-bold"><a href="favoritos.html">Favoritos</a></li>
+        <li class="mont-bold"><a href="mis_gifos.html">Mis GIFOS</a></li>
+
+      </ul>
+
+      <a id="create-btn-link" href="crear_gifo.html"><img id="btn-create" src="images/button-crear-gifo.svg" alt=""></a>
+
+    </nav>
+
+  </header>
+
+  <main>
+
+    <section id="mis-gifos-section">
+
+      <img class="section-icon" src="images/icon-mis-gifos.svg" alt="Ícono de una cara sonriente color verde agua">
+
+      <h2 class="mont-bold title">Mis GIFOS</h2>
+
+      <div class="flex-wrapper">
+
+        <div id="mis-gifos-no-content">
+
+          <img src="images/icon-mis-gifos-sin-contenido.svg" alt="">
+
+          <p class="mont-bold">¡Anímate a crear tu primer GIFO!</p>
+
+        </div>
+
+        <div id="mis-gifos-with-content" class="flex-wrapper">
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="trending-section">
+
+      <h2 class="mont-bold title">Trending GIFOS</h2>
+
+      <p>Mira los últimos<span> GIFOS de nuestra comunidad.</span></p>
+
+      <div id="trending-wrapper">
+
+        <img id="btn-slider-left" src="images/button-slider-left.svg" alt="">
+
+        <div id="trend-gif-wrapper"></div>
+
+        <img id="btn-slider-right" src="images/Button-Slider-right.svg" alt="">
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="robot-reg">
+
+    <p>Compartir en:</p>
+
+    <div id="icons-wrapper">
+      <a href="https://www.facebook.com/" target="_blank"><img id="fb-icon" src="images/icon_facebook.svg" alt="Ícono de facebook"></a>
+      <a href="https://twitter.com/" target="_blank"><img id="twitter-icon" src="images/icon-twitter.svg" alt="Ícono de Twitter"></a>
+      <a href="https://instagram.com/" target="_blank"><img id="insta-icon" src="images/icon_instagram.svg" alt="Ícono de Instagram"></a>
+    </div>
+
+    <p>&copy; GIFOS 2020 All Rights Reserved.</p>
+
+  </footer>
+
+  <div class="purple-line"></div>
+
+  <script src="scripts/shared_features.js"></script>
+  <script src="scripts/dark_mode_general.js"></script>
+  <script src="scripts/my_gifs.js"></script>
+  <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+
+  <!-- <script src="api_calls.js"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+body {
+
+  main {
+    #mis-gifos-section {
+      width: 100%;
+      h2 {
+        color: $purple;
+        text-align: center;
+        font-size: 1.25rem;
+        line-height: 1.6rem;
+        margin-bottom: 46px;
+      }
+  
+      .flex-wrapper {
+        width: 100%;
+        margin-bottom: 53px;
+  
+        #mis-gifos-no-content {
+          width: 100%;
+  
+          img {
+            display: block;
+            margin: 0 auto 23px auto;
+            width: 120px;
+          }
+  
+          p {
+            width: 50%;
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.6rem;
+            color: $text_aquamarine;
+            margin: 0 auto 137px auto;
+          }
+        }
+  
+        #mis-gifos-with-content {
+          width: 100%;
+          padding: 0 4% 53px 4%;
+          max-width: 600px;
+
+          .gif-container {
+            position: relative;
+            margin: 0 10px 22px 0;
+          }
+
+          .my-gif {
+            width: 156px;
+            height: 120px;
+          }
+
+          .gif-overlay,
+          .icons-wrapper,
+          .gif-user,
+          .gif-title {
+            display: none;
+          }
+  
+          // .gif-overlay {
+          //   width: 156px;
+          //   height: 120px;
+          //   position: absolute;
+          //   top: 0px;
+  
+          //   .icons-wrapper {
+          //     display: flex;
+          //     visibility: hidden;
+          //     width: 115px;
+          //     justify-content: space-between;
+          //     margin-top: 10px;
+          //     margin-left: 133px;
+          //   }
+  
+          //   .gif-user, .gif-title {
+          //     color: #fff;
+          //     position: absolute;
+          //     text-align: left;
+          //     visibility: hidden;
+          //   }
+  
+          //   .gif-user {
+          //     font-size: 0.9375rem;
+          //     line-height: 1.125rem;
+          //     top: 122px;
+          //     left: 18px;
+          //   }
+  
+          //   .gif-title {
+          //     font-size: 1rem;
+          //     line-height: 1.1875rem;
+          //     top: 144px;
+          //     left: 18px;
+          //   }
+        //}
+  
+          // .gif-overlay:hover {
+          //   background-color: $purple06opacity;
+          // }
+        }
+
+        .ver-mas {
+          margin-bottom: 76px;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+@media screen and (min-width: 1024px) {
+  body {
+
+    main {
+      #mis-gifos-section {
+        h2 {
+          font-size: 1.5625rem;
+          line-height: 1.875rem;
+          margin-bottom: 111px;
+        }
+  
+        .flex-wrapper {
+          //width: 100%;
+          //margin-bottom: 53px;
+  
+          #mis-gifos-no-content {
+            img {
+              display: block;
+              margin: 0 auto 40px auto;
+              width: 150px;
+            }
+  
+            p {
+              width: 30%;
+              text-align: center;
+              font-size: 1.375rem;
+              line-height: 1.875rem;
+              margin: 0 auto 136px auto;
+            }
+          }
+  
+          #mis-gifos-with-content {
+            display: flex;
+            width: 75%;
+            justify-content: space-between;
+            max-width: 1600px;
+            flex-wrap: wrap;
+  
+            .gif-container {
+              position: relative;
+            }
+
+            .my-gif {
+              width: 260px;
+              height: 200px;
+            }
+    
+            .gif-overlay {
+              width: 260px;
+              height: 200px;
+              position: absolute;
+              top: 0px;
+              display: block;
+
+              .icons-wrapper,
+              .gif-user,
+              .gif-title {
+                display: block;
+              }
+    
+              .icons-wrapper {
+                display: flex;
+                visibility: hidden;
+                width: 115px;
+                justify-content: space-between;
+                margin-top: 10px;
+                margin-left: 133px;
+              }
+    
+              .gif-user, .gif-title {
+                color: #fff;
+                position: absolute;
+                text-align: left;
+                visibility: hidden;
+              }
+    
+              .gif-user {
+                font-size: 0.9375rem;
+                line-height: 1.125rem;
+                top: 122px;
+                left: 18px;
+              }
+    
+              .gif-title {
+                font-size: 1rem;
+                line-height: 1.1875rem;
+                top: 144px;
+                left: 18px;
+              }
+            }
+    
+            .gif-overlay:hover {
+              background-color: $purple06opacity;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+  

@@ -1,0 +1,53 @@
+@media screen and (max-width: 1023px) {
+  body .max-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  body .max-container .close-icon {
+    display: block;
+    position: relative;
+    left: 87%;
+    top: 17%;
+  }
+  body .max-container .maxed-gif {
+    display: block;
+    position: relative;
+    margin: auto;
+    top: 25%;
+    width: 80vw;
+    height: 40vh;
+  }
+  body .max-container .gif-overlay {
+    position: relative;
+    top: 23%;
+    left: 11%;
+    margin: auto;
+  }
+  body .max-container .gif-overlay .gif-user {
+    color: #000;
+    font-size: 0.9375rem;
+    line-height: 1.125rem;
+    margin-bottom: 6px;
+  }
+  body .max-container .gif-overlay .gif-title {
+    color: #000;
+    font-size: 1rem;
+    line-height: 1.1875rem;
+  }
+  body .max-container .gif-overlay .fav-icon, body .max-container .gif-overlay .download-icon {
+    position: relative;
+    margin-right: 7px;
+    left: 68%;
+    top: 35px;
+    height: 32px;
+    width: 32px;
+    opacity: 0.7;
+  }
+  body .max-container .gif-overlay .fav-icon:hover, body .max-container .gif-overlay .download-icon:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+}/*# sourceMappingURL=newfile.css.map */

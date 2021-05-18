@@ -1,0 +1,393 @@
+*, html, body {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 16px;
+	max-width: 100%;
+	width: 100%;
+	height: 100%;
+}
+
+body, main {
+	width: 100%;
+	max-width: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+.mont-bold {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 700;
+}
+
+.robot-reg {
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+}
+
+.robot-med {
+	font-family: "Roboto", sans-serif;
+	font-weight: 500;
+}
+
+.flex-wrapper {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+
+.ver-mas {
+	text-transform: uppercase;
+	font-size: 0.8125rem;
+	line-height: 1rem;
+	color: $purple;
+	border: 1px solid $purple;
+	border-radius: 25px;
+	background-color: transparent;
+	padding: 16px 31.5px;
+	display: block;
+	margin: auto;
+}
+
+.max-container {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+
+	.close-icon {
+		display: block;
+		position: relative;
+		left: 80%;
+		top: 17%;
+	}
+
+	.maxed-gif {
+		display: block;
+		position: relative;
+		margin: auto;
+		top: 25%;
+		width: 50vw;
+		height: 50vh;
+	}
+
+	.gif-overlay {
+		position: relative;
+		top: 28%;
+		left: 25%;
+		margin: auto;
+
+		.gif-user {
+			color: #000;
+			font-size: 0.9375rem;
+			font-family: "Roboto", sans-serif;
+			font-weight: 400;
+			margin-bottom: 6px;
+		}
+	
+		.gif-title {
+			color: #000;
+			font-size: 1rem;
+			font-family: "Roboto", sans-serif;
+			font-weight: 700;
+		}
+
+		.fav-icon, .download-icon {
+			position: relative;
+			margin-right: 7px;
+			left: 45%;
+			top: -50px;
+			height: 32px;
+			width: 32px;
+			opacity: 0.7;
+		}
+
+		.fav-icon:hover, .download-icon:hover {
+			opacity: 1;
+			cursor: pointer;
+		}
+	}
+}
+
+.ver-mas:hover {
+	cursor: pointer;
+	background-color: $purple;
+	color: #fff;
+}
+
+.section-icon {
+	display: block;
+	margin: 5px auto 7px auto;
+}
+
+.purple-line {
+	background-color: $purple;
+	width: 100%;
+	height: 5px;
+}
+
+.sticky {
+	position: fixed;
+	top: 100px;
+}
+
+.hidden {
+	display: none;
+}
+
+header {
+	#logo {
+		width: 56px;
+		height: 49px;
+		overflow: visible;
+	}
+
+	.search-wrapper {
+		display: none;
+	}
+
+	#nav {
+		display: flex;
+		justify-content: space-between;
+		padding: 29px 6.9% 17.2px 5.9%;
+		width: 100%;
+		position: relative;
+
+		#menu {
+			display: none;
+			width: 100%;
+			position: absolute;
+			top: 100px;
+			left: 0;
+			height: 100vh;
+			background-color: $purple;
+			opacity: 90%;
+			text-align: center;
+			//display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			padding-top: 17px;
+
+			li {
+				list-style: none;
+
+				a {
+					color: #fff;
+					font-size: 0.9375rem;
+					line-height: 3.75rem;
+				}
+
+				a:hover {
+					text-decoration: underline $aquamarine 2px;
+					cursor: pointer;
+				}
+
+				a:active {
+					color: $active_link_gray;
+				}
+			}
+
+			li::after {
+				content: "";
+				margin: -7.9px auto 0 auto;
+				display: block;
+				height: 0.1px;
+				width: 10.9%;
+				max-width: 50px;
+				background-color: #fff;
+				opacity: 0.5;
+			}
+		}
+
+		#menu.show-menu {
+			display: flex;
+		}
+
+		#create-btn-link, #btn-create {
+			display: none;
+		}
+	}
+}
+
+footer {
+	font-family: "Roboto", sans-serif;
+	color: #000;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding-top: 47px;
+
+	p:first-of-type {
+		font-size: 0.9375rem;
+		line-height: 1.125rem;
+		margin-bottom: 24px;
+	}
+
+	p:nth-of-type(2) {
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+		margin-top: 46px;
+		padding-bottom: 23px;
+	}
+
+	#icons-wrapper {
+		display: flex;
+		justify-content: space-between;
+		width: 25.4%;
+		max-width: 140px;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	header {
+		#nav {
+			//position: sticky;
+			justify-content: space-between;
+			padding: 18px 5.8% 12.9px 5.8%;
+
+			.logo {
+				margin-right: 35%;
+			}
+
+			#logo {
+				width: 68px;
+				height: 60px;
+			}
+
+			.search-wrapper {
+				position: absolute;
+				left: 28%;
+				width: 24%;
+				max-width: 350px;
+				//max-width: 419px;
+				height: auto;
+				border: 1px solid $purple;
+				border-radius: 27px;
+				margin: 0 auto 31px auto;
+				//display: flex;
+				display: none;
+
+				#search-input {
+					border: none;
+					width: 64.4%;
+					font-size: 1rem;
+					height: 1.375rem;
+					line-height: 1.1875rem;
+					//margin-left: 55px;
+					margin: 15px 0 13px 0;
+				}
+
+				#search-icon-gray {
+					margin: 15px 13px 0 24px;
+					width: 20px;
+					height: 20px;
+					//margin-left: 21px;
+					visibility: hidden;
+				}
+
+				#search-icon {
+					margin: 15px 20px 0 24px;
+					width: 20px;
+					height: 20px;
+					//margin-left: 24px;
+				}
+			}
+
+			#burger {
+				display: none;
+			}
+
+			#menu {
+				display: flex;
+				width: auto;
+				position: relative;
+				top: 0;
+				height: auto;
+				background-color: #fff;
+				opacity: 100%;
+				flex-direction: row;
+				justify-content: space-between;
+
+				li {
+					height: 100%;
+					margin-right: 50px;
+
+					a {
+						color: $purple;
+						font-size: 0.8125rem;
+						line-height: 1rem;
+						text-transform: uppercase;
+					}
+				}
+
+				li:nth-of-type(3) {
+					margin-right: 0;
+				}
+
+				li::after {
+					display: none;
+				}
+			}
+
+			#create-btn-link {
+				display: inline;
+
+				#btn-create {
+					display: inline;
+					justify-self: flex-end;
+					margin-left: 4.1%;
+					cursor: pointer;
+					//display: none;
+					// width: 54px;
+					// height: 54px;
+				}
+			}
+		}
+	}
+
+	footer {
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 51.5px 10.8% 51.5px 10.8%;
+
+		p {
+			display: inline;
+		}
+
+		p:first-of-type {
+			font-size: 0.8125rem;
+			line-height: 0.9375rem;
+			margin-bottom: 0;
+			margin-right: 1.9%;
+		}
+
+		p:nth-of-type(2) {
+			font-size: 0.8125rem;
+			line-height: 0.9375rem;
+			margin-top: 0;
+			padding-bottom: 0;
+		}
+
+		#icons-wrapper {
+			width: 10%;
+		}
+	}
+}
+
+@media screen and (min-width: 1400px) {
+	header {
+		#nav {
+			//position: sticky;
+			justify-content: space-between;
+			padding: 18px 10.8% 12.9px 10.8%;
+		}
+	}
+}

@@ -1,0 +1,123 @@
+body.dark-mode {
+  background-color: $background_dark_mode;
+
+  .ver-mas {
+    color: #fff;
+    border-color: #fff;
+  }
+
+  .ver-mas:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+  header {
+    #nav {
+      #menu {
+        background-color: $background_dark_mode;
+
+        li {
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    h1 {
+      color: #fff;
+    }
+  }
+
+  main {
+    #search-section {
+      .search-wrapper {
+        border-color: #fff;
+
+        input {
+          background-color: $background_dark_mode;
+        }
+      }
+
+      #trending-p, #trending-topics {
+        color: #fff;
+      }
+    }
+
+    #search-results {
+      .title {
+        color: #fff;
+      }
+    }
+
+    #trending-section {
+      background-color: $trending_dark_mode;
+
+      .title {
+        color: #fff;
+      }
+
+      p {
+        color: #fff;
+      }
+    }
+
+    #fav-section {
+      .title {
+        color: #fff;
+      }
+
+      #fav-no-content {
+        p {
+          color: #fff;
+        }
+      }
+    }
+
+    #mis-gifos-section {
+      h2 {
+        color: #fff;
+      }
+
+      #mis-gifos-no-content {
+        p {
+          color: #fff;
+        }
+      }
+    }
+
+    #panel {
+      border-color: #fff;
+
+      .title, #first-p, #second-p {
+        color: #fff;
+      }
+    }
+
+    #paso-a-paso {
+      span {
+        color: #fff;
+        border-color: #fff;
+      }
+
+      span.active, span:hover {
+        color: #000;
+        background-color: #fff;
+      }
+    }
+
+    #duration-repeat {
+      color: #FFF;
+    }
+
+    .line {
+      background-color: #fff;
+    }
+  }
+
+  footer {
+    p {
+      color: #fff;
+    }
+  }
+}

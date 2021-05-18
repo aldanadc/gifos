@@ -1,0 +1,400 @@
+body {
+  background-color: #fff;
+
+  header {
+    width: 100%;
+
+    h1 {
+      text-align: center;
+      font-size: 1.5625rem;
+      line-height: 2.0625rem;
+      margin: 7px 0 31px 0;
+      color: $purple;
+
+      .line-break {
+        display: block;
+      }
+
+      .text-color {
+        color: $text_aquamarine;
+      }
+    }
+
+    #img-header {
+      width: 72.8%;
+      max-width: 325px;
+      margin: auto;
+      display: block;
+    }
+  }
+
+  main {
+    #search-section {
+      width: 100%;
+      height: auto;
+      //padding-bottom: 45px;
+
+      .search-wrapper {
+        position: relative;
+        width: 89.1%;
+        max-width: 419px;
+        height: auto;
+        border: 1px solid $purple;
+        border-radius: 27px;
+        margin: 0 auto 31px auto;
+        display: flex;
+
+        .search-input {
+          border: none;
+          width: 64.4%;
+          font-size: 1rem;
+          height: 1.375rem;
+          line-height: 1.1875rem;
+          //margin-left: 55px;
+          margin: 15px 0 13px 0;
+        }
+
+        #search-icon-gray {
+          margin: 15px 13px 0 24px;
+          width: 20px;
+          height: 20px;
+          //margin-left: 21px;
+          visibility: hidden;
+        }
+
+        .search-icon {
+          margin: 15px 20px 0 24px;
+          width: 20px;
+          height: 20px;
+          //margin-left: 24px;
+        }
+      }
+    }
+
+    #trending-p,
+    #trending-topics {
+      font-family: "Montserrat", sans-serif;
+      text-align: center;
+      color: $purple;
+      //margin-bottom: 2px;
+    }
+
+    #trending-p {
+      font-size: 1rem;
+      line-height: 1.5625rem;
+    }
+
+    #trending-topics {
+      color: $purple;
+      font-weight: 500;
+      font-size: 0.875rem;
+      line-height: 1.5625rem;
+      width: 60%;
+      margin-left: 20%;
+
+      .TTsearch:hover {
+        cursor: pointer;
+      }
+    }
+
+    #trending-section {
+      max-width: 100%;
+      text-align: center;
+      padding: 46px 0 82px 0;
+      background-color: $trending_gray;
+
+      .title {
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+        margin-bottom: 7px;
+        color: $purple;
+      }
+
+      p {
+        font-family: "Roboto", sans-serif;
+        color: #000;
+        font-size: 1rem;
+        line-height: 1.4375rem;
+        margin-bottom: 32px;
+
+        span {
+          display: block;
+        }
+      }
+
+      #trending-wrapper {
+        display: flex;
+
+        #btn-slider-left,
+        #btn-slider-right {
+          display: none;
+        }
+
+        #trend-gif-wrapper {
+          margin-left: 22px;
+          //margin-right: -7px;
+          display: flex;
+          flex-direction: row;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          scroll-behavior: smooth;
+          max-width: 100%;
+
+          .gif-container {
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+
+            .trending-gifs {
+              margin-right: 22px;
+              width: 243px;
+              height: 187px;
+            }
+  
+            .gif-overlay,
+            .icons-wrapper,
+            .gif-user,
+            .gif-title {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  body {
+    header {
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    header {
+      h1 {
+        font-size: 2.1875rem;
+        line-height: 3.125rem;
+        width: 40%;
+        margin: 76px auto 24px auto;
+
+        .line-break {
+          display: inline;
+        }
+      }
+
+      #img-header {
+        width: 27.7%;
+        max-width: 480px;
+      }
+    }
+
+    main {
+      #search-section {
+        padding-bottom: 95px;
+
+        .search-wrapper {
+          width: 38.3%;
+          max-width: 600px;
+          margin: 0 auto 73px auto;
+
+          .search-input {
+            width: 210px;
+            height: 1.375rem;
+            //margin-left: 54px;
+          }
+
+          .search-icon {
+            margin-left: 40%;
+            margin-right: 0%;
+          }
+        }
+
+        #trending-p {
+          font-size: 1.125rem;
+          margin-bottom: 7px;
+        }
+
+        #trending-topics {
+          font-size: 1rem;
+          width: 27.9%;
+          margin-left: 36.05%;
+        }
+      }
+
+      #trending-section {
+        padding: 67px 0 182px 0;
+        //background-color: $trending_gray;
+
+        .title {
+          font-size: 1.5625rem;
+          margin-bottom: 12px;
+        }
+
+        p {
+          font-size: 1.125rem;
+          line-height: 1.4375rem;
+          margin-bottom: 53px;
+
+          span {
+            display: inline;
+          }
+        }
+
+        #trending-wrapper {
+          width: 100%;
+          justify-content: center;
+          margin: auto;
+          padding-left: 6.5%;
+          padding-right: 6.5%;
+
+          #btn-slider-left,
+          #btn-slider-right {
+            display: inline;
+          }
+
+          #btn-slider-left {
+            margin-right: 22px;
+          }
+
+          #btn-slider-right {
+            margin-left: 22px;
+          }
+
+          #btn-slider-left:hover,
+          #btn-slider-right:hover {
+            cursor: pointer;
+          }
+
+          #trend-gif-wrapper {
+            overflow-x: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            margin-left: 0;
+            margin-right: 0;
+
+            .gif-container {
+              position: relative;
+              margin-right: 22px;
+              width: 357px;
+              height: 275px;
+              scroll-snap-align: start;
+              scroll-snap-stop: always;
+
+              .trending-gifs {
+                margin-right: 0;
+                width: 357px;
+                height: 275px;
+                //object-fit: cover;
+              }
+
+              .gif-overlay {
+                display: block;
+                width: 357px;
+                height: 275px;
+                position: absolute;
+                top: 0px;
+
+                .icons-wrapper,
+                .gif-user,
+                .gif-title {
+                  display: block;
+                }
+
+                .icons-wrapper {
+                  display: flex;
+                  visibility: hidden;
+                  justify-content: space-between;
+                  width: 116px;
+                  position: absolute;
+                  left: 230px;
+                  top: 10px;
+
+                  // .fav-icon,
+                  // .download-icon,
+                  // .max-icon {
+                  //   height: 32px;
+                  //   width: 32px;
+                  //   opacity: 0.7;
+                  // }
+
+                  // .fav-icon:hover,
+                  // .download-icon:hover,
+                  // .max-icon:hover {
+                  //   opacity: 1;
+                  //   cursor: pointer;
+                  // }
+                }
+
+                .gif-user,
+                .gif-title {
+                  color: #fff;
+                  position: absolute;
+                  text-align: left;
+                  visibility: hidden;
+                }
+
+                .gif-user {
+                  font-size: 0.9375rem;
+                  line-height: 1.125rem;
+                  top: 181px;
+                  left: 18px;
+                }
+
+                .gif-title {
+                  font-size: 1rem;
+                  line-height: 1.1875rem;
+                  top: 205px;
+                  left: 18px;
+                }
+              }
+
+              .gif-overlay:hover {
+                background-color: $purple06opacity;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1350px) {
+  body {
+    main {
+      #search-section {
+        .search-wrapper {
+          .search-icon {
+            margin-left: 24%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  body {
+    main {
+      #search-section {
+        .search-wrapper {
+          .search-icon {
+            margin-left: 30%;
+          }
+        }
+      }
+      #trending-section {
+        #trending-wrapper {
+          #btn-slider-right {
+            margin-left: 0px;
+          }
+        }
+      }
+    }
+  }
+}

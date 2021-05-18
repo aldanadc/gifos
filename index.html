@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenido a GIFOS</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="preconnect" href="//fonts.gstatic.com">
+  <link rel="preconnect" href="//fonts.gstatic.com">
+  <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+
+    <div class="purple-line"></div>
+
+    <nav id="nav">
+
+      <a class="logo" href="index.html"><img id="logo" src="images/logo-mobile.svg" alt="Logo del sitio"></a>
+
+      <!-- <div class="search-wrapper hidden">
+
+        <img class="search-icon-gray" src="images/icon-search-gray.svg" alt="">
+  
+        <input class="search-input" type="text" placeholder="Busca GIFOS y más">
+  
+        <img class="search-icon" src="images/icon-search.svg" alt="Ícono de una lupa">
+  
+        <div class="suggestions-wrapper"></div>
+  
+      </div> -->
+
+      <img id="burger" src="images/burger.svg" alt="Ícono menu desplegable">
+
+      <ul id="menu">
+
+        <li class="mont-bold"><a id="btn-dark-mode">Modo Nocturno</a></li>
+        <li class="mont-bold"><a href="favoritos.html">Favoritos</a></li>
+        <li class="mont-bold"><a href="mis_gifos.html">Mis GIFOS</a></li>
+
+      </ul>
+
+      <a id="create-btn-link" href="crear_gifo.html"><img id="btn-create" src="images/button-crear-gifo.svg" alt=""></a>
+
+    </nav>
+
+    <h1 class="mont-bold">Inspírate, busca, <span class="line-break">guarda, y crea los</span> mejores <span class="text-color">GIFOS</span></h1>
+
+    <img id="img-header" src="images/ilustra_header.svg" alt="Ilustración de tres personas saludando">
+
+  </header>
+
+  <main>
+
+    <section id="search-section">
+
+      <div id="main-search-wrapper" class="search-wrapper">
+
+        <img id="search-icon-gray" src="images/icon-search-gray.svg" alt="">
+
+        <input class="search-input" type="text" placeholder="Busca GIFOS y más">
+
+        <img class="search-icon" src="images/icon-search.svg" alt="Ícono de una lupa">
+
+        <div id="suggestions-wrapper"></div>
+
+      </div>
+
+      <p id="trending-p" class="mont-bold">Trending:</p>
+
+      <p id="trending-topics"></p>
+
+    </section>
+
+    <section id="search-results">
+
+      <span id="before-title"></span>
+
+      <h2 id="search-title" class="mont-bold title"></h2>
+
+      <div id="results-wrapper" class="flex-wrapper"></div>
+
+      <div id="no-results">
+
+        <img id="no-results-img" src="images/icon-busqueda-sin-resultado.svg" alt="">
+
+        <p id="no-results-p" class="mont-bold">Intenta con otra búsqueda.</p>
+
+      </div>
+
+      <button id="ver-mas-search" class="mont-bold ver-mas btn hidden">Ver más</button>
+
+    </section>
+
+    <section id="trending-section">
+
+      <h2 class="mont-bold title">Trending GIFOS</h2>
+
+      <p>Mira los últimos<span> GIFOS de nuestra comunidad.</span></p>
+
+
+      <div id="trending-wrapper">
+
+        <img id="btn-slider-left" src="images/button-slider-left.svg" alt="">
+
+        <div id="trend-gif-wrapper"></div>
+
+        <img id="btn-slider-right" src="images/Button-Slider-right.svg" alt="">
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="robot-reg">
+
+    <p>Compartir en:</p>
+
+    <div id="icons-wrapper">
+      <a href="https://www.facebook.com/" target="_blank"><img id="fb-icon" src="images/icon_facebook.svg" alt="Ícono de facebook"></a>
+      <a href="https://twitter.com/" target="_blank"><img id="twitter-icon" src="images/icon-twitter.svg" alt="Ícono de Twitter"></a>
+      <a href="https://instagram.com/" target="_blank"><img id="insta-icon" src="images/icon_instagram.svg" alt="Ícono de Instagram"></a>
+    </div>
+
+    <p>&copy; GIFOS 2020 All Rights Reserved.</p>
+
+  </footer>
+
+  <div class="purple-line"></div>
+
+  <script src="scripts/shared_features.js"></script>
+  <script src="scripts/home.js"></script>
+  <script src="scripts/search.js"></script>
+  <script src="scripts/dark_mode_general.js"></script>
+  <script src="scripts/dark_mode_home.js"></script>
+  <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+</body>
+
+</html>
