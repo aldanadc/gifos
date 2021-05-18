@@ -115,6 +115,16 @@ body.dark-mode {
     }
   }
 
+  #content-mobile {
+    #panel-mobile {
+      border-color: #fff;
+
+      .title, #first-p, #second-p {
+        color: #fff;
+      }
+    }
+  }
+
   footer {
     p {
       color: #fff;

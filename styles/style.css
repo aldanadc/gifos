@@ -326,35 +326,6 @@ body .max-container .gif-overlay .fav-icon, body .max-container .gif-overlay .do
     width: 68px;
     height: 60px;
   }
-  body header #nav .search-wrapper {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    left: 25%;
-    width: 25%;
-    max-width: 350px;
-    height: 50px;
-    border: 1px solid #572EE5;
-    border-radius: 27px;
-  }
-  body header #nav .search-wrapper .search-input {
-    border: none;
-    width: 50%;
-    font-size: 1rem;
-    height: 1.375rem;
-    line-height: 1.1875rem;
-  }
-  body header #nav .search-wrapper .search-icon-gray {
-    margin: 0 13px 0 24px;
-    width: 20px;
-    height: 20px;
-    visibility: hidden;
-  }
-  body header #nav .search-wrapper .search-icon {
-    margin-left: 20%;
-    width: 20px;
-    height: 20px;
-  }
   body header #nav #burger {
     display: none;
   }
@@ -601,6 +572,35 @@ body main #trending-section #trending-wrapper #trend-gif-wrapper .gif-container 
   }
 }
 @media screen and (min-width: 1024px) {
+  body header #nav .search-wrapper {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 25%;
+    width: 25%;
+    max-width: 350px;
+    height: 50px;
+    border: 1px solid #572EE5;
+    border-radius: 27px;
+  }
+  body header #nav .search-wrapper .search-input {
+    border: none;
+    width: 50%;
+    font-size: 1rem;
+    height: 1.375rem;
+    line-height: 1.1875rem;
+  }
+  body header #nav .search-wrapper .search-icon-gray {
+    margin: 0 13px 0 24px;
+    width: 20px;
+    height: 20px;
+    visibility: hidden;
+  }
+  body header #nav .search-wrapper .search-icon {
+    margin-left: 20%;
+    width: 20px;
+    height: 20px;
+  }
   body header h1 {
     font-size: 2.1875rem;
     line-height: 3.125rem;
@@ -1304,220 +1304,279 @@ body main #mis-gifos-section .flex-wrapper #mis-gifos-with-content .gif-overlay 
     opacity: 0;
   }
 }
-@media screen and (min-width: 1024px) {
-  body main .film-roll-1 {
-    width: 50px;
-    -webkit-animation-name: film-roll-1;
-            animation-name: film-roll-1;
-    -webkit-animation-duration: 3s;
-            animation-duration: 3s;
-    -webkit-animation-delay: 0.5s;
-            animation-delay: 0.5s;
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-  }
-  body main .film-roll-2 {
-    width: 65px;
-    -webkit-animation-name: film-roll-2;
-            animation-name: film-roll-2;
-    -webkit-animation-duration: 3s;
-            animation-duration: 3s;
-    -webkit-animation-delay: 0.5s;
-            animation-delay: 0.5s;
-    -webkit-animation-timing-function: linear;
-            animation-timing-function: linear;
-  }
-  body main .film-roll-1, body main .film-roll-2 {
-    position: relative;
-    top: 150px;
-    left: 60px;
-    z-index: 2;
-  }
-  body main #img-camera {
-    width: 120px;
-    position: relative;
-    top: 250px;
-    left: -50px;
-  }
-  body main .light {
-    display: inline-block;
-    background-image: linear-gradient(267deg, rgba(136, 243, 226, 0) 22%, #50e3c2 100%);
-    -webkit-clip-path: polygon(0 38%, 100% 0, 100% 100%, 0 62%);
-            clip-path: polygon(0 38%, 100% 0, 100% 100%, 0 62%);
-    opacity: 0;
-    height: 151px;
-    width: 8%;
-    max-width: 80px;
-    position: relative;
-    top: 243px;
-    left: -50px;
-    -webkit-animation-name: flicker, camera;
-            animation-name: flicker, camera;
-    -webkit-animation-duration: 2s, 2s;
-            animation-duration: 2s, 2s;
-    -webkit-animation-delay: 0.5s, 3s;
-            animation-delay: 0.5s, 3s;
-    -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-    -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-  }
-  body main #panel {
-    width: 47.7%;
-    max-width: 700px;
-    height: 330px;
-    border: 1px solid #572EE5;
-    margin: 4px auto 0 auto;
-    position: relative;
-    top: 0;
-    text-align: center;
-  }
-  body main #panel .cam-stream {
-    display: block;
-    margin: 12px auto 0 auto;
-    -o-object-fit: initial;
-       object-fit: initial;
-    width: 450px;
-    height: 250px;
-  }
-  body main #panel .cam-stream.hidden {
-    display: none;
-  }
-  body main #panel .corner {
-    background-color: #50E3C2;
-    width: 27px;
-    height: 27px;
-    display: inline-block;
-    z-index: -1;
-  }
-  body main #panel .corner-1 {
-    -webkit-clip-path: polygon(0% 0%, 0% 100%, 4% 100%, 4% 4%, 100% 4%, 100% 100%, 100% 100%, 100% 0);
-            clip-path: polygon(0% 0%, 0% 100%, 4% 100%, 4% 4%, 100% 4%, 100% 100%, 100% 100%, 100% 0);
-    position: relative;
-    top: 20px;
-    right: 42%;
-  }
-  body main #panel .corner-2 {
-    -webkit-clip-path: polygon(100% 100%, 96% 100%, 96% 4%, 0 4%, 0 0, 100% 0, 100% 0);
-            clip-path: polygon(100% 100%, 96% 100%, 96% 4%, 0 4%, 0 0, 100% 0, 100% 0);
-    position: relative;
-    top: 20px;
-    left: 42%;
-  }
-  body main #panel .created-gif {
-    display: block;
-    margin: 12px auto 0 auto;
-    width: 450px;
-    height: 250px;
-  }
-  body main #panel .created-gif-overlay {
-    width: 450px;
-    height: 250px;
-    margin: 12px auto -268px auto;
-    position: relative;
-    top: -262px;
-    background-color: rgba(87, 46, 229, 0.6);
-  }
-  body main #panel .created-gif-overlay .overlay-content {
-    position: relative;
-    top: 30%;
-  }
-  body main #panel .created-gif-overlay .overlay-content .icons-wrapper {
-    display: flex;
-    justify-content: space-between;
-    width: 15%;
-    position: relative;
-    visibility: hidden;
-    top: -50px;
-    left: 83%;
-  }
-  body main #panel .created-gif-overlay .overlay-content p {
-    color: #FFF;
-    font-size: 0.9375rem;
-    line-height: 2.5rem;
-  }
-  body main #panel .created-gif.hidden {
-    display: none;
-  }
-  body main #panel .corner-3 {
-    -webkit-clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
-            clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
-    position: relative;
-    top: 57px;
-    right: 42%;
-  }
-  body main #panel .corner-4 {
-    -webkit-clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
-            clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
-    position: relative;
-    top: 57px;
-    right: -42%;
-  }
-  body main #panel .title {
-    font-size: 1.5625rem;
-    line-height: 2.1875rem;
-    color: #572EE5;
-    margin-top: 65px;
-  }
-  body main #panel .title .line-break {
-    display: block;
-  }
-  body main #panel .title .aquamarine-text {
-    color: #50E3C2;
-  }
-  body main #panel p {
-    font-size: 1rem;
-    line-height: 1.8125rem;
-  }
-  body main #paso-a-paso {
-    margin: 24px auto 19px auto;
-    display: flex;
-    justify-content: space-between;
-    width: 10%;
-  }
-  body main #paso-a-paso .recordStep {
-    width: 2rem;
-    height: 2rem;
-    color: #572EE5;
-    font-size: 1.125rem;
-    border: 1px solid #572EE5;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 2rem;
-  }
-  body main #paso-a-paso .recordStep.active {
-    color: #fff;
-    background-color: #572EE5;
-  }
-  body main #duration-repeat {
-    color: #572EE5;
-    font-size: 0.9375rem;
-    line-height: 1.375rem;
-    position: relative;
-    left: 69%;
-    top: -45px;
-  }
-  body main .repeatBtn:hover {
-    -webkit-text-decoration: underline #5ED7C6 2px;
-            text-decoration: underline #5ED7C6 2px;
-    cursor: pointer;
-  }
-  body main .film-roll-3 {
-    position: relative;
-    left: 80%;
-  }
-  body main .line {
-    background-color: #572EE5;
-    width: 55.3%;
-    height: 6.9px;
-    margin: auto;
-    border-radius: 25px;
-  }
-  body main .btn {
-    margin: 20px auto 26px auto;
-  }
+body main .film-roll-1 {
+  width: 50px;
+  -webkit-animation-name: film-roll-1;
+          animation-name: film-roll-1;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
 }
-@media screen and (min-width: 1024px) and (min-width: 1300px) {
+body main .film-roll-2 {
+  width: 65px;
+  -webkit-animation-name: film-roll-2;
+          animation-name: film-roll-2;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+body main .film-roll-1, body main .film-roll-2 {
+  position: relative;
+  top: 150px;
+  left: 60px;
+  z-index: 2;
+}
+body main #img-camera {
+  width: 120px;
+  position: relative;
+  top: 250px;
+  left: -50px;
+}
+body main .light {
+  display: inline-block;
+  background-image: linear-gradient(267deg, rgba(136, 243, 226, 0) 22%, #50e3c2 100%);
+  -webkit-clip-path: polygon(0 38%, 100% 0, 100% 100%, 0 62%);
+          clip-path: polygon(0 38%, 100% 0, 100% 100%, 0 62%);
+  opacity: 0;
+  height: 151px;
+  width: 8%;
+  max-width: 80px;
+  position: relative;
+  top: 243px;
+  left: -50px;
+  -webkit-animation-name: flicker, camera;
+          animation-name: flicker, camera;
+  -webkit-animation-duration: 2s, 2s;
+          animation-duration: 2s, 2s;
+  -webkit-animation-delay: 0.5s, 3s;
+          animation-delay: 0.5s, 3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+}
+body main #panel {
+  width: 47.7%;
+  max-width: 700px;
+  height: 330px;
+  border: 1px solid #572EE5;
+  margin: 4px auto 0 auto;
+  position: relative;
+  top: 0;
+  text-align: center;
+}
+body main #panel .cam-stream {
+  display: block;
+  margin: 12px auto 0 auto;
+  -o-object-fit: initial;
+     object-fit: initial;
+  width: 450px;
+  height: 250px;
+}
+body main #panel .cam-stream.hidden {
+  display: none;
+}
+body main #panel .corner {
+  background-color: #50E3C2;
+  width: 27px;
+  height: 27px;
+  display: inline-block;
+  z-index: -1;
+}
+body main #panel .corner-1 {
+  -webkit-clip-path: polygon(0% 0%, 0% 100%, 4% 100%, 4% 4%, 100% 4%, 100% 100%, 100% 100%, 100% 0);
+          clip-path: polygon(0% 0%, 0% 100%, 4% 100%, 4% 4%, 100% 4%, 100% 100%, 100% 100%, 100% 0);
+  position: relative;
+  top: 20px;
+  right: 42%;
+}
+body main #panel .corner-2 {
+  -webkit-clip-path: polygon(100% 100%, 96% 100%, 96% 4%, 0 4%, 0 0, 100% 0, 100% 0);
+          clip-path: polygon(100% 100%, 96% 100%, 96% 4%, 0 4%, 0 0, 100% 0, 100% 0);
+  position: relative;
+  top: 20px;
+  left: 42%;
+}
+body main #panel .created-gif {
+  display: block;
+  margin: 12px auto 0 auto;
+  width: 450px;
+  height: 250px;
+}
+body main #panel .created-gif-overlay {
+  width: 450px;
+  height: 250px;
+  margin: 12px auto -268px auto;
+  position: relative;
+  top: -262px;
+  background-color: rgba(87, 46, 229, 0.6);
+}
+body main #panel .created-gif-overlay .overlay-content {
+  position: relative;
+  top: 30%;
+}
+body main #panel .created-gif-overlay .overlay-content .icons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+  position: relative;
+  visibility: hidden;
+  top: -50px;
+  left: 83%;
+}
+body main #panel .created-gif-overlay .overlay-content p {
+  color: #FFF;
+  font-size: 0.9375rem;
+  line-height: 2.5rem;
+}
+body main #panel .created-gif.hidden {
+  display: none;
+}
+body main #panel .corner-3 {
+  -webkit-clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
+          clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
+  position: relative;
+  top: 57px;
+  right: 42%;
+}
+body main #panel .corner-4 {
+  -webkit-clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
+          clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
+  position: relative;
+  top: 57px;
+  right: -42%;
+}
+body main #panel .title {
+  font-size: 1.5625rem;
+  line-height: 2.1875rem;
+  color: #572EE5;
+  margin-top: 65px;
+}
+body main #panel .title .line-break {
+  display: block;
+}
+body main #panel .title .aquamarine-text {
+  color: #50E3C2;
+}
+body main #panel p {
+  font-size: 1rem;
+  line-height: 1.8125rem;
+}
+body main #paso-a-paso {
+  margin: 24px auto 19px auto;
+  display: flex;
+  justify-content: space-between;
+  width: 10%;
+}
+body main #paso-a-paso .recordStep {
+  width: 2rem;
+  height: 2rem;
+  color: #572EE5;
+  font-size: 1.125rem;
+  border: 1px solid #572EE5;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2rem;
+}
+body main #paso-a-paso .recordStep.active {
+  color: #fff;
+  background-color: #572EE5;
+}
+body main #duration-repeat {
+  color: #572EE5;
+  font-size: 0.9375rem;
+  line-height: 1.375rem;
+  position: relative;
+  left: 69%;
+  top: -45px;
+}
+body main .repeatBtn:hover {
+  -webkit-text-decoration: underline #5ED7C6 2px;
+          text-decoration: underline #5ED7C6 2px;
+  cursor: pointer;
+}
+body main .film-roll-3 {
+  position: relative;
+  left: 80%;
+}
+body main .line {
+  background-color: #572EE5;
+  width: 55.3%;
+  height: 6.9px;
+  margin: auto;
+  border-radius: 25px;
+}
+body main .btn {
+  margin: 20px auto 26px auto;
+}
+body section #panel-mobile {
+  height: 500px;
+  display: block;
+  width: 350px;
+  height: 350px;
+  border: 1px solid #572EE5;
+  margin: 200px auto 0 auto;
+  text-align: center;
+}
+body section #panel-mobile .corner {
+  background-color: #50E3C2;
+  width: 27px;
+  height: 27px;
+  display: inline-block;
+  z-index: -1;
+}
+body section #panel-mobile .corner-1 {
+  -webkit-clip-path: polygon(0% 0%, 0% 100%, 4% 100%, 4% 4%, 100% 4%, 100% 100%, 100% 100%, 100% 0);
+          clip-path: polygon(0% 0%, 0% 100%, 4% 100%, 4% 4%, 100% 4%, 100% 100%, 100% 100%, 100% 0);
+  position: relative;
+  top: 20px;
+  right: 130px;
+}
+body section #panel-mobile .corner-2 {
+  -webkit-clip-path: polygon(100% 100%, 96% 100%, 96% 4%, 0 4%, 0 0, 100% 0, 100% 0);
+          clip-path: polygon(100% 100%, 96% 100%, 96% 4%, 0 4%, 0 0, 100% 0, 100% 0);
+  position: relative;
+  top: 20px;
+  left: 130px;
+}
+body section #panel-mobile .corner-3 {
+  -webkit-clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
+          clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
+  position: relative;
+  top: 105px;
+  right: 130px;
+}
+body section #panel-mobile .corner-4 {
+  -webkit-clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
+          clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
+  position: relative;
+  top: 105px;
+  left: 130px;
+}
+body section #panel-mobile .title {
+  font-size: 1.5625rem;
+  line-height: 2.1875rem;
+  color: #572EE5;
+  margin-top: 65px;
+}
+body section #panel-mobile .title .line-break {
+  display: block;
+}
+body section #panel-mobile .title .aquamarine-text {
+  color: #50E3C2;
+}
+body section #panel-mobile p {
+  font-size: 1rem;
+  line-height: 1.8125rem;
+}
+
+@media screen and (min-width: 1300px) {
   body main #panel {
     height: 390px;
   }
@@ -1633,6 +1692,12 @@ body.dark-mode main #duration-repeat {
 }
 body.dark-mode main .line {
   background-color: #fff;
+}
+body.dark-mode #content-mobile #panel-mobile {
+  border-color: #fff;
+}
+body.dark-mode #content-mobile #panel-mobile .title, body.dark-mode #content-mobile #panel-mobile #first-p, body.dark-mode #content-mobile #panel-mobile #second-p {
+  color: #fff;
 }
 body.dark-mode footer p {
   color: #fff;

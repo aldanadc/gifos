@@ -1,4 +1,6 @@
 const searchWrapper = document.getElementById("main-search-wrapper");
+// const topSearchWrapper = document.querySelector(".search-wrapper:first-of-type");
+// const mainSearchWrapper = document.querySelector("#main-search-wrapper");
 const resultsContainer = document.getElementById("results-wrapper");
 const noResultsDiv = document.getElementById("no-results");
 const searchTitle = document.getElementById("search-title");

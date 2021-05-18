@@ -15,6 +15,8 @@ const cameraStream = document.querySelector(".cam-stream");
 const timerAndRepeat = document.querySelector("#duration-repeat");
 const gifIcons = document.querySelector(".icons-wrapper");
 const createdGifOverlay = document.querySelector(".created-gif-overlay");
+const mobileView = document.querySelector("#content-mobile");
+const desktopView = document.querySelector("main");
 const cameraConditions = { audio: false, video: { height: { max: 300 }, width: { max: 600 } } };
 const APIkey = "xuMDkSg7dnKR2qernbZ0b58a42n5X2Bn";
 const uploadUrl = `https://upload.giphy.com/v1/gifs?api_key=${APIkey}`;
@@ -23,6 +25,7 @@ let form = new FormData();
 let recorder;
 let myGifId;
 
+if (window.matchMedia("(min-width: 1024px)").matches) {
 
 createGifBtn.addEventListener("click", () => {
   panelTitle.innerHTML = "¿Nos das acceso <br> a tu cámara?";
@@ -314,6 +317,11 @@ function mediaIconsOnHover() {
 
 mediaIconsOnHover();
 
+}else {
+  mobileView.style.display = "block";
+  desktopView.style.display = "none";
+  burger.style.display = "none";
+}
 // function changeIconsOnHover() {
 //   const iconDownload = document.querySelectorAll(".fav-icon");
 //   const iconDownload = document.querySelectorAll(".fav-icon");

@@ -557,6 +557,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
         const gifOverlay = document.createElement("div");
         maxContainer.classList.add("max-container");
         maxedGif.classList.add("maxed-gif");
+        maxedGif.classList.add("faved-gif"); //** */
         gifOverlay.setAttribute("class", "gif-overlay");
         gifId = gif.id;
   
@@ -752,8 +753,12 @@ function addOrRemoveFavourites(icon) {
   }else { //ENCUENTRA EL ID, LO QUITA DE FAVORITOS
     storedGifsArray.splice(findIndex, 1);
     gif.classList.remove("faved-gif");
+
+    if (storedGifsArray.length === 0) {
+      localStorage.setItem("has-favourites", false)
+    }
+    
     localStorage.setItem("faved-gifs", JSON.stringify(storedGifsArray));
-    console.log(storedGifsArray);
   }
 }
 
