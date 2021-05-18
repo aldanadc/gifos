@@ -27,94 +27,94 @@
   100% { opacity:0; }
 }
 
-@media screen and (max-width: 1023px) {
-  body {
+// @media screen and (max-width: 1023px) {
+//   body {
 
-    header {
-      #nav {
-        #burger {
-        display: none;
-        }
-      }
-    }
+//     header {
+//       #nav {
+//         #burger {
+//         display: none;
+//         }
+//       }
+//     }
 
-    main {
-      display: none;
-    }
+//     main {
+//       display: none;
+//     }
 
-    section {
-      height: 500px;
+//     section {
+//       height: 500px;
 
-      #panel-mobile {
-        display: block;
-        width: 350px;
-        height: 350px;
-        border: 1px solid $purple;
-        margin: 200px auto 0 auto;
-        //position: fixed;
-        text-align: center;
+//       #panel-mobile {
+//         display: block;
+//         width: 350px;
+//         height: 350px;
+//         border: 1px solid $purple;
+//         margin: 200px auto 0 auto;
+//         //position: fixed;
+//         text-align: center;
   
-        .corner {
-          background-color: $text_aquamarine;
-          width: 27px;
-          height: 27px;
-          display: inline-block;
-          z-index: -1;
-        }
+//         .corner {
+//           background-color: $text_aquamarine;
+//           width: 27px;
+//           height: 27px;
+//           display: inline-block;
+//           z-index: -1;
+//         }
     
-        .corner-1 {
-          clip-path: polygon(0% 0%, 0% 100%, 4% 100%, 4% 4%, 100% 4%, 100% 100%, 100% 100%, 100% 0);
-          position: relative;
-          top: 20px;
-          right: 130px;
-        }
+//         .corner-1 {
+//           clip-path: polygon(0% 0%, 0% 100%, 4% 100%, 4% 4%, 100% 4%, 100% 100%, 100% 100%, 100% 0);
+//           position: relative;
+//           top: 20px;
+//           right: 130px;
+//         }
     
-        .corner-2 {
-          clip-path: polygon(100% 100%, 96% 100%, 96% 4%, 0 4%, 0 0, 100% 0, 100% 0);
-          position: relative;
-          top: 20px;
-          left: 130px;
-        }
+//         .corner-2 {
+//           clip-path: polygon(100% 100%, 96% 100%, 96% 4%, 0 4%, 0 0, 100% 0, 100% 0);
+//           position: relative;
+//           top: 20px;
+//           left: 130px;
+//         }
   
-        .corner-3 {
-          clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
-          position: relative;
-          top: 105px;
-          right: 130px;
-        }
+//         .corner-3 {
+//           clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
+//           position: relative;
+//           top: 105px;
+//           right: 130px;
+//         }
     
-        .corner-4 {
-          clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
-          position: relative;
-          top: 105px;
-          left: 130px;
-        }
+//         .corner-4 {
+//           clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
+//           position: relative;
+//           top: 105px;
+//           left: 130px;
+//         }
     
-        .title {
-          font-size: 1.5625rem;
-          line-height: 2.1875rem;
-          color: $purple;
-          margin-top: 65px;
+//         .title {
+//           font-size: 1.5625rem;
+//           line-height: 2.1875rem;
+//           color: $purple;
+//           margin-top: 65px;
     
-          .line-break {
-            display: block;
-          }
+//           .line-break {
+//             display: block;
+//           }
     
-          .aquamarine-text {
-            color: $text_aquamarine;
-          }
-        }
+//           .aquamarine-text {
+//             color: $text_aquamarine;
+//           }
+//         }
     
-        p {
-          font-size: 1rem;
-          line-height: 1.8125rem;
-        }
-      }
+//         p {
+//           font-size: 1rem;
+//           line-height: 1.8125rem;
+//         }
+//       }
 
-    }
+//     }
     
-  }
-}
+//   }
+// }
 
 @media screen and (min-width: 1024px) {
 
@@ -174,9 +174,9 @@
         animation-timing-function: ease-out;
       }
 
-      #panel-mobile {
-        display: none;
-      }
+      // #panel-mobile {
+      //   display: none;
+      // }
     
       #panel {
         width: 47.7%;
