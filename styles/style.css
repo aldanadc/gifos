@@ -77,13 +77,13 @@ a {
   height: 5px;
 }
 
-.sticky {
-  position: fixed;
-  top: 20px;
-}
-
 .hidden {
   display: none;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
 }
 
 .fav-icon,
@@ -108,6 +108,7 @@ body header #nav {
   padding: 29px 6.9% 17.2px 5.9%;
   width: 100%;
   position: relative;
+  top: 0;
 }
 body header #nav #menu {
   display: none;
@@ -227,6 +228,12 @@ body .max-container .gif-overlay .fav-icon, body .max-container .gif-overlay .do
   width: 32px;
 }
 
+@media (hover: none) {
+  .ver-mas:hover {
+    color: #572EE5;
+    background-color: transparent;
+  }
+}
 @media screen and (min-width: 601px) and (max-width: 1023px) {
   body .max-container .close-icon {
     left: 88%;
@@ -318,9 +325,6 @@ body .max-container .gif-overlay .fav-icon, body .max-container .gif-overlay .do
   body header #nav {
     justify-content: space-between;
     padding: 18px 5.8% 12.9px 5.8%;
-  }
-  body header #nav .logo {
-    margin-right: 35%;
   }
   body header #nav #logo {
     width: 68px;
@@ -438,6 +442,9 @@ body {
 body header {
   width: 100%;
 }
+body header #nav .search-wrapper {
+  display: none;
+}
 body header h1 {
   text-align: center;
   font-size: 1.5625rem;
@@ -485,7 +492,7 @@ body main #search-section .search-wrapper #search-icon-gray {
   height: 20px;
   visibility: hidden;
 }
-body main #search-section .search-wrapper .search-icon {
+body main #search-section .search-wrapper .search-icon, body main #search-section .search-wrapper .top-search-icon {
   margin: 15px 20px 0 24px;
   width: 20px;
   height: 20px;
@@ -548,7 +555,7 @@ body main #trending-section #trending-wrapper #trend-gif-wrapper {
   -ms-scroll-snap-type: x mandatory;
       scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  max-width: 100%;
+  max-width: 1137px;
 }
 body main #trending-section #trending-wrapper #trend-gif-wrapper .gif-container {
   scroll-snap-align: center;
@@ -572,18 +579,23 @@ body main #trending-section #trending-wrapper #trend-gif-wrapper .gif-container 
   }
 }
 @media screen and (min-width: 1024px) {
+  body header #nav {
+    position: fixed;
+    top: 0;
+    background-color: #FFF;
+    z-index: 3;
+  }
   body header #nav .search-wrapper {
     display: flex;
+    visibility: hidden;
     align-items: center;
-    position: absolute;
-    left: 25%;
-    width: 25%;
-    max-width: 350px;
+    background-color: #FFF;
+    width: 300px;
     height: 50px;
     border: 1px solid #572EE5;
     border-radius: 27px;
   }
-  body header #nav .search-wrapper .search-input {
+  body header #nav .search-wrapper .search-input, body header #nav .search-wrapper .top-search-input {
     border: none;
     width: 50%;
     font-size: 1rem;
@@ -596,7 +608,7 @@ body main #trending-section #trending-wrapper #trend-gif-wrapper .gif-container 
     height: 20px;
     visibility: hidden;
   }
-  body header #nav .search-wrapper .search-icon {
+  body header #nav .search-wrapper .search-icon, body header #nav .search-wrapper .top-search-icon {
     margin-left: 20%;
     width: 20px;
     height: 20px;
@@ -605,7 +617,7 @@ body main #trending-section #trending-wrapper #trend-gif-wrapper .gif-container 
     font-size: 2.1875rem;
     line-height: 3.125rem;
     width: 40%;
-    margin: 76px auto 24px auto;
+    margin: 171px auto 24px auto;
   }
   body header h1 .line-break {
     display: inline;
@@ -622,11 +634,11 @@ body main #trending-section #trending-wrapper #trend-gif-wrapper .gif-container 
     max-width: 600px;
     margin: 0 auto 73px auto;
   }
-  body main #search-section .search-wrapper .search-input {
+  body main #search-section .search-wrapper .search-input, body main #search-section .search-wrapper .top-search-input {
     width: 210px;
     height: 1.375rem;
   }
-  body main #search-section .search-wrapper .search-icon {
+  body main #search-section .search-wrapper .search-icon, body main #search-section .search-wrapper .top-search-icon {
     margin-left: 40%;
     margin-right: 0%;
   }
@@ -1304,278 +1316,279 @@ body main #mis-gifos-section .flex-wrapper #mis-gifos-with-content .gif-overlay 
     opacity: 0;
   }
 }
-body main .film-roll-1 {
-  width: 50px;
-  -webkit-animation-name: film-roll-1;
-          animation-name: film-roll-1;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-}
-body main .film-roll-2 {
-  width: 65px;
-  -webkit-animation-name: film-roll-2;
-          animation-name: film-roll-2;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-}
-body main .film-roll-1, body main .film-roll-2 {
-  position: relative;
-  top: 150px;
-  left: 60px;
-  z-index: 2;
-}
-body main #img-camera {
-  width: 120px;
-  position: relative;
-  top: 250px;
-  left: -50px;
-}
-body main .light {
-  display: inline-block;
-  background-image: linear-gradient(267deg, rgba(136, 243, 226, 0) 22%, #50e3c2 100%);
-  -webkit-clip-path: polygon(0 38%, 100% 0, 100% 100%, 0 62%);
-          clip-path: polygon(0 38%, 100% 0, 100% 100%, 0 62%);
-  opacity: 0;
-  height: 151px;
-  width: 8%;
-  max-width: 80px;
-  position: relative;
-  top: 243px;
-  left: -50px;
-  -webkit-animation-name: flicker, camera;
-          animation-name: flicker, camera;
-  -webkit-animation-duration: 2s, 2s;
-          animation-duration: 2s, 2s;
-  -webkit-animation-delay: 0.5s, 3s;
-          animation-delay: 0.5s, 3s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
-}
-body main #panel {
-  width: 47.7%;
-  max-width: 700px;
-  height: 330px;
-  border: 1px solid #572EE5;
-  margin: 4px auto 0 auto;
-  position: relative;
-  top: 0;
-  text-align: center;
-}
-body main #panel .cam-stream {
-  display: block;
-  margin: 12px auto 0 auto;
-  -o-object-fit: initial;
-     object-fit: initial;
-  width: 450px;
-  height: 250px;
-}
-body main #panel .cam-stream.hidden {
-  display: none;
-}
-body main #panel .corner {
-  background-color: #50E3C2;
-  width: 27px;
-  height: 27px;
-  display: inline-block;
-  z-index: -1;
-}
-body main #panel .corner-1 {
-  -webkit-clip-path: polygon(0% 0%, 0% 100%, 4% 100%, 4% 4%, 100% 4%, 100% 100%, 100% 100%, 100% 0);
-          clip-path: polygon(0% 0%, 0% 100%, 4% 100%, 4% 4%, 100% 4%, 100% 100%, 100% 100%, 100% 0);
-  position: relative;
-  top: 20px;
-  right: 42%;
-}
-body main #panel .corner-2 {
-  -webkit-clip-path: polygon(100% 100%, 96% 100%, 96% 4%, 0 4%, 0 0, 100% 0, 100% 0);
-          clip-path: polygon(100% 100%, 96% 100%, 96% 4%, 0 4%, 0 0, 100% 0, 100% 0);
-  position: relative;
-  top: 20px;
-  left: 42%;
-}
-body main #panel .created-gif {
-  display: block;
-  margin: 12px auto 0 auto;
-  width: 450px;
-  height: 250px;
-}
-body main #panel .created-gif-overlay {
-  width: 450px;
-  height: 250px;
-  margin: 12px auto -268px auto;
-  position: relative;
-  top: -262px;
-  background-color: rgba(87, 46, 229, 0.6);
-}
-body main #panel .created-gif-overlay .overlay-content {
-  position: relative;
-  top: 30%;
-}
-body main #panel .created-gif-overlay .overlay-content .icons-wrapper {
-  display: flex;
-  justify-content: space-between;
-  width: 15%;
-  position: relative;
-  visibility: hidden;
-  top: -50px;
-  left: 83%;
-}
-body main #panel .created-gif-overlay .overlay-content p {
-  color: #FFF;
-  font-size: 0.9375rem;
-  line-height: 2.5rem;
-}
-body main #panel .created-gif.hidden {
-  display: none;
-}
-body main #panel .corner-3 {
-  -webkit-clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
-          clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
-  position: relative;
-  top: 57px;
-  right: 42%;
-}
-body main #panel .corner-4 {
-  -webkit-clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
-          clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
-  position: relative;
-  top: 57px;
-  right: -42%;
-}
-body main #panel .title {
-  font-size: 1.5625rem;
-  line-height: 2.1875rem;
-  color: #572EE5;
-  margin-top: 65px;
-}
-body main #panel .title .line-break {
-  display: block;
-}
-body main #panel .title .aquamarine-text {
-  color: #50E3C2;
-}
-body main #panel p {
-  font-size: 1rem;
-  line-height: 1.8125rem;
-}
-body main #paso-a-paso {
-  margin: 24px auto 19px auto;
-  display: flex;
-  justify-content: space-between;
-  width: 10%;
-}
-body main #paso-a-paso .recordStep {
-  width: 2rem;
-  height: 2rem;
-  color: #572EE5;
-  font-size: 1.125rem;
-  border: 1px solid #572EE5;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 2rem;
-}
-body main #paso-a-paso .recordStep.active {
-  color: #fff;
-  background-color: #572EE5;
-}
-body main #duration-repeat {
-  color: #572EE5;
-  font-size: 0.9375rem;
-  line-height: 1.375rem;
-  position: relative;
-  left: 69%;
-  top: -45px;
-}
-body main .repeatBtn:hover {
-  -webkit-text-decoration: underline #5ED7C6 2px;
-          text-decoration: underline #5ED7C6 2px;
-  cursor: pointer;
-}
-body main .film-roll-3 {
-  position: relative;
-  left: 80%;
-}
-body main .line {
-  background-color: #572EE5;
-  width: 55.3%;
-  height: 6.9px;
-  margin: auto;
-  border-radius: 25px;
-}
-body main .btn {
-  margin: 20px auto 26px auto;
-}
-body section #panel-mobile {
-  height: 500px;
-  display: block;
+body #content-mobile #panel-mobile {
   width: 350px;
   height: 350px;
   border: 1px solid #572EE5;
-  margin: 200px auto 0 auto;
+  margin: 150px auto 200px auto;
+  position: relative;
   text-align: center;
 }
-body section #panel-mobile .corner {
+body #content-mobile #panel-mobile .corner {
   background-color: #50E3C2;
   width: 27px;
   height: 27px;
   display: inline-block;
   z-index: -1;
 }
-body section #panel-mobile .corner-1 {
+body #content-mobile #panel-mobile .corner-1 {
   -webkit-clip-path: polygon(0% 0%, 0% 100%, 4% 100%, 4% 4%, 100% 4%, 100% 100%, 100% 100%, 100% 0);
           clip-path: polygon(0% 0%, 0% 100%, 4% 100%, 4% 4%, 100% 4%, 100% 100%, 100% 100%, 100% 0);
   position: relative;
   top: 20px;
   right: 130px;
 }
-body section #panel-mobile .corner-2 {
+body #content-mobile #panel-mobile .corner-2 {
   -webkit-clip-path: polygon(100% 100%, 96% 100%, 96% 4%, 0 4%, 0 0, 100% 0, 100% 0);
           clip-path: polygon(100% 100%, 96% 100%, 96% 4%, 0 4%, 0 0, 100% 0, 100% 0);
   position: relative;
   top: 20px;
   left: 130px;
 }
-body section #panel-mobile .corner-3 {
+body #content-mobile #panel-mobile .corner-3 {
   -webkit-clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
           clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
   position: relative;
   top: 105px;
   right: 130px;
 }
-body section #panel-mobile .corner-4 {
+body #content-mobile #panel-mobile .corner-4 {
   -webkit-clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
           clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
   position: relative;
   top: 105px;
   left: 130px;
 }
-body section #panel-mobile .title {
+body #content-mobile #panel-mobile .title {
   font-size: 1.5625rem;
   line-height: 2.1875rem;
   color: #572EE5;
   margin-top: 65px;
 }
-body section #panel-mobile .title .line-break {
+body #content-mobile #panel-mobile .title .line-break {
   display: block;
 }
-body section #panel-mobile .title .aquamarine-text {
+body #content-mobile #panel-mobile .title .aquamarine-text {
   color: #50E3C2;
 }
-body section #panel-mobile p {
+body #content-mobile #panel-mobile p {
   font-size: 1rem;
   line-height: 1.8125rem;
 }
 
+@media screen and (min-width: 1024px) {
+  body main .film-roll-1 {
+    width: 50px;
+    -webkit-animation-name: film-roll-1;
+            animation-name: film-roll-1;
+    -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+    -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+  }
+  body main .film-roll-2 {
+    width: 65px;
+    -webkit-animation-name: film-roll-2;
+            animation-name: film-roll-2;
+    -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+    -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+  }
+  body main .film-roll-1, body main .film-roll-2 {
+    position: relative;
+    top: 155px;
+    left: 60px;
+    z-index: 2;
+  }
+  body main #img-camera {
+    width: 120px;
+    position: relative;
+    top: 250px;
+    left: -50px;
+  }
+  body main .light {
+    display: inline-block;
+    background-image: linear-gradient(267deg, rgba(136, 243, 226, 0) 22%, #50e3c2 100%);
+    -webkit-clip-path: polygon(0 38%, 100% 0, 100% 100%, 0 62%);
+            clip-path: polygon(0 38%, 100% 0, 100% 100%, 0 62%);
+    opacity: 0;
+    height: 151px;
+    width: 8%;
+    max-width: 80px;
+    position: relative;
+    top: 243px;
+    left: -50px;
+    -webkit-animation-name: flicker, camera;
+            animation-name: flicker, camera;
+    -webkit-animation-duration: 2s, 2s;
+            animation-duration: 2s, 2s;
+    -webkit-animation-delay: 0.5s, 3s;
+            animation-delay: 0.5s, 3s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  body main #panel {
+    width: 47.7%;
+    max-width: 700px;
+    height: 330px;
+    border: 1px solid #572EE5;
+    margin: 4px auto 24px auto;
+    position: relative;
+    top: 0;
+    text-align: center;
+  }
+  body main #panel .cam-stream {
+    display: block;
+    margin: 12px auto 0 auto;
+    -o-object-fit: initial;
+       object-fit: initial;
+    width: 450px;
+    height: 250px;
+  }
+  body main #panel .cam-stream.hidden {
+    display: none;
+  }
+  body main #panel .corner {
+    background-color: #50E3C2;
+    width: 27px;
+    height: 27px;
+    display: inline-block;
+    z-index: -1;
+  }
+  body main #panel .corner-1 {
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 4% 100%, 4% 4%, 100% 4%, 100% 100%, 100% 100%, 100% 0);
+            clip-path: polygon(0% 0%, 0% 100%, 4% 100%, 4% 4%, 100% 4%, 100% 100%, 100% 100%, 100% 0);
+    position: relative;
+    top: 20px;
+    right: 42%;
+  }
+  body main #panel .corner-2 {
+    -webkit-clip-path: polygon(100% 100%, 96% 100%, 96% 4%, 0 4%, 0 0, 100% 0, 100% 0);
+            clip-path: polygon(100% 100%, 96% 100%, 96% 4%, 0 4%, 0 0, 100% 0, 100% 0);
+    position: relative;
+    top: 20px;
+    left: 42%;
+  }
+  body main #panel .created-gif {
+    display: block;
+    margin: 12px auto 0 auto;
+    width: 450px;
+    height: 250px;
+  }
+  body main #panel .created-gif-overlay {
+    width: 450px;
+    height: 250px;
+    margin: 12px auto -268px auto;
+    position: relative;
+    top: -262px;
+    background-color: rgba(87, 46, 229, 0.6);
+  }
+  body main #panel .created-gif-overlay .overlay-content {
+    position: relative;
+    top: 30%;
+  }
+  body main #panel .created-gif-overlay .overlay-content .icons-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 15%;
+    position: relative;
+    visibility: hidden;
+    top: -50px;
+    left: 83%;
+  }
+  body main #panel .created-gif-overlay .overlay-content p {
+    color: #FFF;
+    font-size: 0.9375rem;
+    line-height: 2.5rem;
+  }
+  body main #panel .created-gif.hidden {
+    display: none;
+  }
+  body main #panel .corner-3 {
+    -webkit-clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
+            clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
+    position: relative;
+    top: 57px;
+    right: 42%;
+  }
+  body main #panel .corner-4 {
+    -webkit-clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
+            clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
+    position: relative;
+    top: 57px;
+    right: -42%;
+  }
+  body main #panel .title {
+    font-size: 1.5625rem;
+    line-height: 2.1875rem;
+    color: #572EE5;
+    margin-top: 65px;
+  }
+  body main #panel .title .line-break {
+    display: block;
+  }
+  body main #panel .title .aquamarine-text {
+    color: #50E3C2;
+  }
+  body main #panel p {
+    font-size: 1rem;
+    line-height: 1.8125rem;
+  }
+  body main #paso-a-paso {
+    margin: 24px auto -50px auto;
+    display: flex;
+    justify-content: space-between;
+    width: 10%;
+  }
+  body main #paso-a-paso .recordStep {
+    width: 2rem;
+    height: 2rem;
+    color: #572EE5;
+    font-size: 1.125rem;
+    border: 1px solid #572EE5;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 2rem;
+  }
+  body main #paso-a-paso .recordStep.active {
+    color: #fff;
+    background-color: #572EE5;
+  }
+  body main #duration-repeat {
+    color: #572EE5;
+    font-size: 0.9375rem;
+    line-height: 1.375rem;
+    position: relative;
+    left: 69%;
+    top: -45px;
+  }
+  body main .repeatBtn:hover {
+    -webkit-text-decoration: underline #5ED7C6 2px;
+            text-decoration: underline #5ED7C6 2px;
+    cursor: pointer;
+  }
+  body main .film-roll-3 {
+    position: relative;
+    left: 80%;
+  }
+  body main .line {
+    background-color: #572EE5;
+    width: 55.3%;
+    height: 6.9px;
+    margin: 0 auto 20px auto;
+    border-radius: 25px;
+  }
+  body main .btn {
+    margin: 20px auto 26px auto;
+  }
+}
 @media screen and (min-width: 1300px) {
   body main #panel {
     height: 390px;
@@ -1608,10 +1621,13 @@ body section #panel-mobile p {
   body main #panel .title {
     margin-top: 90px;
   }
+  body footer + .purple-line {
+    margin-bottom: 300px;
+  }
 }
 @media screen and (min-width: 1500px) {
   body main .film-roll-1, body main .film-roll-2 {
-    left: 180px;
+    left: 185px;
   }
   body main #img-camera {
     left: 70px;
@@ -1631,6 +1647,32 @@ body.dark-mode .ver-mas:hover {
   background-color: #fff;
   color: #000;
 }
+body.dark-mode .max-container {
+  background-color: #37383C;
+}
+body.dark-mode .max-container .gif-title, body.dark-mode .max-container .gif-user {
+  color: #fff;
+}
+body.dark-mode header #nav {
+  background-color: #37383C;
+}
+body.dark-mode header #nav .search-wrapper {
+  background-color: #37383C;
+  border-color: #FFF;
+}
+body.dark-mode header #nav .search-wrapper .top-search-input {
+  background-color: #37383C;
+  color: #FFF;
+}
+body.dark-mode header #nav .search-wrapper .top-search-input::-moz-placeholder {
+  color: #FFF;
+}
+body.dark-mode header #nav .search-wrapper .top-search-input:-ms-input-placeholder {
+  color: #FFF;
+}
+body.dark-mode header #nav .search-wrapper .top-search-input::placeholder {
+  color: #FFF;
+}
 body.dark-mode header #nav #menu {
   background-color: #37383C;
 }
@@ -1643,8 +1685,17 @@ body.dark-mode header h1 {
 body.dark-mode main #search-section .search-wrapper {
   border-color: #fff;
 }
-body.dark-mode main #search-section .search-wrapper input {
+body.dark-mode main #search-section .search-wrapper .search-input {
   background-color: #37383C;
+}
+body.dark-mode main #search-section .search-wrapper .search-input::-moz-placeholder {
+  color: #FFF;
+}
+body.dark-mode main #search-section .search-wrapper .search-input:-ms-input-placeholder {
+  color: #FFF;
+}
+body.dark-mode main #search-section .search-wrapper .search-input::placeholder {
+  color: #FFF;
 }
 body.dark-mode main #search-section #trending-p, body.dark-mode main #search-section #trending-topics {
   color: #fff;
@@ -1655,10 +1706,7 @@ body.dark-mode main #search-results .title {
 body.dark-mode main #trending-section {
   background-color: #222326;
 }
-body.dark-mode main #trending-section .title {
-  color: #fff;
-}
-body.dark-mode main #trending-section p {
+body.dark-mode main #trending-section .title, body.dark-mode main #trending-section p {
   color: #fff;
 }
 body.dark-mode main #fav-section .title {
@@ -1701,4 +1749,16 @@ body.dark-mode #content-mobile #panel-mobile .title, body.dark-mode #content-mob
 }
 body.dark-mode footer p {
   color: #fff;
+}
+@media (hover: none) {
+  body.dark-mode .ver-mas:hover {
+    color: #FFF;
+    background-color: transparent;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  body.dark-mode header #nav #menu {
+    background-color: #000;
+  }
 }/*# sourceMappingURL=style.css.map */

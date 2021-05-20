@@ -1,6 +1,4 @@
 const searchWrapper = document.getElementById("main-search-wrapper");
-// const topSearchWrapper = document.querySelector(".search-wrapper:first-of-type");
-// const mainSearchWrapper = document.querySelector("#main-search-wrapper");
 const resultsContainer = document.getElementById("results-wrapper");
 const noResultsDiv = document.getElementById("no-results");
 const searchTitle = document.getElementById("search-title");
@@ -22,7 +20,6 @@ const cleanFields = () => {
     verMas.style.display = "none";
   }
   searchTitle.innerHTML = ""; //PARA QUE NO QUEDE EL TÍTULO DE LA BÚSQUEDA ANTERIOR MIENTRAS TRAE LOS NUEVOS GIFS
-
   suggField.innerHTML = ""; //LIMPIA SUGERENCIAS ANTES DE MOSTRAR RESULTADOS
   searchWrapper.style.height = "50px"; //VUELVE SEARCH FIELD PEQUEÑO
   grayGlass.style.visibility = "hidden"; //ESCONDE LUPA IZQUIERDA
@@ -30,13 +27,13 @@ const cleanFields = () => {
 
 
 //DEFINIR FUNCIÓN PARA MODIFICAR INPUT Y TÍTULO
-function displaySearchTitle() {
-
+function displaySearchTitle(inputValue) {
   //MAYÚSCULA PRIMERA LETRA Y RESTO MINÚSCULA EN INPUT
-  input.value = (input.value).charAt(0).toUpperCase() + ((input.value).slice(1)).toLowerCase();
+  //inputValue = (input.value).charAt(0).toUpperCase() + ((input.value).slice(1)).toLowerCase();
+  inputValue= inputValue.charAt(0).toUpperCase() + ((inputValue).slice(1)).toLowerCase();
 
   //COMPLETA TÍTULO DE LO BUSCADO Y MUESTRA LÍNEA GRIS
-  searchTitle.innerHTML = (input.value).charAt(0).toUpperCase() + (input.value).slice(1);
+  searchTitle.innerHTML = (inputValue).charAt(0).toUpperCase() + (inputValue).slice(1);
   beforeTitle.style.display = "block";
 }
 
@@ -128,6 +125,7 @@ const createSuggestions = (suggestions) => {
     suggestion.classList.add("suggestion-p");
     searchWrapper.style.height = "180px";
     suggField.appendChild(suggestion);
+    console.log(suggestion.innerHTML);
 
     suggestion.addEventListener("click", () => { //CONVIERTE SELECCIÓN DE SUGERENCIA EN INPUT Y BORRA EL RESTO
       input.value = suggestion.innerHTML;

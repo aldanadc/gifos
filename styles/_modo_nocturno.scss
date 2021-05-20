@@ -11,8 +11,32 @@ body.dark-mode {
     color: #000;
   }
 
+  .max-container {
+    background-color: $background_dark_mode;
+
+    .gif-title, .gif-user {
+      color: #fff;
+    }
+  }
+
   header {
     #nav {
+      background-color: $background_dark_mode;
+
+      .search-wrapper {
+        background-color: $background_dark_mode;
+        border-color: #FFF;
+
+        .top-search-input {
+          background-color: $background_dark_mode;
+          color: #FFF;
+        }
+
+        .top-search-input::placeholder {
+          color: #FFF;
+        }
+      }
+
       #menu {
         background-color: $background_dark_mode;
 
@@ -34,8 +58,12 @@ body.dark-mode {
       .search-wrapper {
         border-color: #fff;
 
-        input {
+        .search-input {
           background-color: $background_dark_mode;
+        }
+
+        .search-input::placeholder {
+          color: #FFF;
         }
       }
 
@@ -53,13 +81,13 @@ body.dark-mode {
     #trending-section {
       background-color: $trending_dark_mode;
 
-      .title {
+      .title, p {
         color: #fff;
       }
 
-      p {
-        color: #fff;
-      }
+      // p {
+      //   color: #fff;
+      // }
     }
 
     #fav-section {
@@ -128,6 +156,27 @@ body.dark-mode {
   footer {
     p {
       color: #fff;
+    }
+  }
+
+  @media (hover: none) {
+    .ver-mas:hover {
+      color: #FFF;
+      background-color: transparent;
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 1023px) {
+  body.dark-mode {
+    header {
+      #nav {
+        #menu {
+          background-color: #000;
+        }
+      }
     }
   }
 }

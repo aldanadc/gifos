@@ -1,9 +1,14 @@
 const myGifsNoContent = document.getElementById("mis-gifos-no-content");
+const noContentP = document.querySelector("#mis-gifos-no-content p");
 const myGifsContent = document.getElementById("mis-gifos-with-content");
-const sectionLink = document.querySelector("#menu li:nth-of-type(3) a");
+const myGifsAnchor = document.querySelector("#menu li:nth-of-type(3) a");
 let myGifId;
 
-sectionLink.style.color = "#9CAFC3";
+myGifsAnchor.style.color = "#9CAFC3";
+
+if (window.matchMedia("(max-width: 1023px)").matches) {
+  noContentP.textContent = "¡Anímate a crear tu primer GIFO! Visítanos en versión desktop";
+}
 
 const fetchMyGifs = async () => {
   const response = await fetch(`https://api.giphy.com/v1/gifs/${myGifId}?api_key=${APIkey}`);
@@ -12,7 +17,8 @@ const fetchMyGifs = async () => {
 }
 
 if (window.matchMedia("(min-width: 1024px)").matches) {
-
+  menu.style.marginLeft = "35%";
+  //menu.style.backgroundColor = "#37383C";
   function showMyGifs() {
     const hasmyGifs = localStorage.getItem("has-my-gifs");
     const myStoredGifs = localStorage.getItem("my-gifs");
@@ -53,12 +59,13 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
   
       //maxGif();
   
-    } else if (hasmyGifs === false) {
-      myGifsNoContent.style.display = "block";
+    }else {
+      myGifsNoContent.classList.remove("hidden")
     }
   }  
 }else {
-  const hasmyGifs = localStorage.getItem("has-my-gifs");
+  function showMyGifs() {
+    const hasmyGifs = localStorage.getItem("has-my-gifs");
     const myStoredGifs = localStorage.getItem("my-gifs");
     const myStoredGifsArray = JSON.parse(myStoredGifs);
   
@@ -95,14 +102,16 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
       //trashIconsOnHover();
   
       removeFromMyGifs();
-  }else if (hasmyGifs === false) {
-    myGifsNoContent.style.display = "block";
+
+    }else {
+      myGifsNoContent.classList.remove("hidden");
+    }
   }
 }
 
 showMyGifs();
 
-
+//VER ICONITO DE TRASH QUE QUIZÁS SE REPITE EN OTRA FUNCION
 function createMyGifIcons(eachOverlayDiv) {
   //CREA UN SOLO GRUPO DE ÍCONOS POR CADA DIV
     const iconsWrapper = document.createElement("div");
@@ -152,9 +161,12 @@ function removeFromMyGifs() {
 
       if (findIndex != -1) { //ENCUENTRA ID, LO QUITA DE MYGIFS
         myStoredGifsArray.splice(findIndex, 1);
+
+        if (myStoredGifsArray.length === 0) {
+          localStorage.setItem("has-my-gifs", false)
+        }
+
         localStorage.setItem("my-gifs", JSON.stringify(myStoredGifsArray));
-        console.log(myStoredGifsArray);
-        console.log("hola");
       }
     })
   })

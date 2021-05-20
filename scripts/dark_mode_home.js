@@ -4,6 +4,7 @@ function setDarkModeHome() {
   if (darkMode === "true") {
     input.style.color = "#FFF";
     magGlass.src = "images/icon-search-modo-noct.svg";
+    topMagGlass.src = "images/icon-search-modo-noct.svg";
 
   } else {
     input.style.color = "#000";

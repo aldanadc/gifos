@@ -1,10 +1,18 @@
+const topInput = document.querySelector(".top-search-input");
 const input = document.querySelector(".search-input");
 const verMas = document.getElementById("ver-mas-search");
-const magGlass = document.querySelector(".search-icon");
+const magGlass = document.querySelector(".search-icon:nth-of-type(2)");
+const navBar = document.querySelector("#nav");
 const grayGlass = document.getElementById("search-icon-gray");
 const pTrending = document.getElementById("trending-topics");
 const suggField = document.getElementById("suggestions-wrapper");
+
 let searchOffset = 0;
+
+
+// if (window.matchMedia("(min-width: 1024px)").matches) {
+//   menu.style.backgroundColor = "#37383C";
+// }
 
 
 //OBTENER INFO TTs
@@ -23,7 +31,7 @@ getTTs().then(data => {
 });
 
 //OBTENER INFO BÚSQUEDA
-function searchGifs() {
+function searchGifs(inputValue) {
 
   cleanFields(); //LIMPAR CAMPOS CON CONTENIDO DE BÚSQUEDA ANTERIOR
 
@@ -36,10 +44,10 @@ function searchGifs() {
     return data
   };
 
-  newSearch(input.value) //INICIAR NUEVA BÚSQUEDA CON INPUT
+  console.log(inputValue);
+  newSearch(inputValue) //INICIAR NUEVA BÚSQUEDA CON INPUT
     .then(results => {
-
-      displaySearchTitle(); //MUESTRA TÍTULO E INPUT DE LO QUE SE BUSCÓ
+      displaySearchTitle(inputValue); //MUESTRA TÍTULO E INPUT DE LO QUE SE BUSCÓ
 
       //SI NO ENCUENTRA NADA DISPARA NO RESULTS
       if (results.data.length === 0) {
@@ -48,12 +56,20 @@ function searchGifs() {
         //FUNCION PARA PINTAR GIFS SI SÍ ENCUENTRA ALGO
         displayGifs(results);
       }
+
+      const resultsSection = document.querySelector("#search-results #before-title");
+      const resultsSectionOffset = resultsSection.offsetTop;
+      const scrollToPoint = resultsSectionOffset - (resultsSectionOffset*0.12);
+      window.scroll({
+        top: scrollToPoint,
+        behavior: 'smooth'
+      });
     })
 }
 
 
 //TRAER MÁS GIFS CON BOTÓN VER MÁS
-const loadMoreGifs = () => {
+const loadMoreGifs = (input) => {
   async function getMoreGifs(searchTerm) {
     searchOffset = searchOffset + 12;
     const searchUrl = `https://api.giphy.com/v1/gifs/search?api_key=${APIkey}&q=${searchTerm}&limit=12&offset=${searchOffset}`;
@@ -115,25 +131,85 @@ let showSuggestions = () => {
 }
 
 
+
 //DISPARAR FUNCIONES
 
 input.addEventListener("keyup", (event) => {
 
   if (event.key === "Enter") {
-    searchGifs();
+    searchGifs(input.value);
+    topInput.value = "";
   }
 });
 
+topInput.addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+    searchGifs(topInput.value);
+  }
+  // const topMagGlass = document.querySelector(".top-search-icon");
+  topMagGlass.style.marginTop = 0;
+  input.value = "";
+});
 
-verMas.addEventListener("click", loadMoreGifs);
+const topMagGlass = document.querySelector(".top-search-icon");
 
+topMagGlass.addEventListener("click", () => {
+  searchGifs(topInput);
+  topMagGlass.style.marginTop = 0;
+  input.value = "";
+  cancelSearch();
+
+  // topMagGlass.addEventListener("click", () => {
+  //     cancelSearch();
+  // })
+})
+
+
+verMas.addEventListener("click", () => {
+  loadMoreGifs(topInput);
+})
+
+verMas.addEventListener("click", () => {
+  loadMoreGifs(input);
+})
 
 input.addEventListener("input", () => {
-
   if (input.value.length >= 3) { //SUGIERE A PARTIR DE TRES LETRAS
-    showSuggestions();
+    showSuggestions(input);
     cancelSearch();
   } else {
     cleanSuggBox();
   }
 })
+
+// topInput.addEventListener("input", () => {
+//   if (input.value.length >= 3) { //SUGIERE A PARTIR DE TRES LETRAS
+//     showSuggestions(input);
+//     cancelSearch();
+//   } else {
+//     cleanSuggBox();
+//   }
+// })
+
+
+const mainSearchWrapper = document.getElementById("main-search-wrapper");
+const topSearchWrapper = document.querySelector(".top-search-wrapper");
+const stickyPoint = mainSearchWrapper.offsetTop;
+
+window.addEventListener("scroll", function() {
+  if (window.pageYOffset >= stickyPoint) {
+    topSearchWrapper.style.visibility = "visible";
+  } else {
+    topSearchWrapper.style.visibility = "hidden";
+  }
+});
+
+
+// var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+//   for (i in sections) {
+//     if (sections[i] <= scrollPosition) {
+//       document.querySelector('.active').setAttribute('class', ' ');
+//       document.querySelector('a[href*=' + i + ']').setAttribute('class', 'active');
+//     }
+//   }
