@@ -62,7 +62,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     firstP.innerHTML = "El acceso a tu camara será válido sólo";
     secondP.innerHTML = "por el tiempo en el que estés creando el GIFO.";
     stepOne.classList.add("active");
-    createGifBtn.classList.add("hidden");
+    //createGifBtn.classList.add("hidden");
     //createGifBtn.style.visibility = "hidden";
     requestCameraAccess();
   })
@@ -79,6 +79,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
         cameraStream.srcObject = stream;
         cameraStream.play();
 
+        createGifBtn.classList.add("hidden"); //** */
         recordBtn.classList.remove("hidden");
         //recordBtn.createGifBtn.style.visibility = "visible";
         stepOne.classList.remove("active");
@@ -178,8 +179,8 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     stepTwo.classList.remove("active");
     stepThree.classList.add("active");
     timerAndRepeat.classList.add("hidden");
-    uploadBtn.classList.add("hidden");
-    //uploadBtn.createGifBtn.style.visibility = "hidden";
+    //uploadBtn.classList.add("hidden");
+    uploadBtn.style.visibility = "hidden";
 
     const response = await fetch(uploadUrl, {
       method: "POST",
@@ -195,12 +196,17 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
       overlayImg.src = "/images/ok.svg";
       overlayP.textContent = "GIFO subido con éxito";
       gifIcons.style.visibility = "visible";
+      uploadBtn.classList.add("hidden");
+      createAnotherBtn.classList.remove("hidden");
     }, 1500);
   };
 
 
   uploadBtn.addEventListener("click", uploadGif);
 
+  createAnotherBtn.addEventListener("click", () => {
+    location.reload()
+  });
 
 // override "stop" method for all browsers
   MediaStream.prototype.__stop = MediaStream.prototype.stop;
@@ -297,7 +303,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     copy.select();
     document.execCommand("copy");
     document.body.removeChild(copy);
-    alert("Link copiado")
+    alert("¡Link a tu GIFO copiado!")
   }
 
 

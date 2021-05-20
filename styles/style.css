@@ -752,12 +752,12 @@ body main #trending-section #trending-wrapper #trend-gif-wrapper .gif-container 
     background-color: rgba(87, 46, 229, 0.6);
   }
 }
-@media screen and (min-width: 1024px) and (max-width: 1350px) {
+@media screen and (min-width: 1024px) and (max-width: 1300px) {
   body main #search-section .search-wrapper .search-icon {
-    margin-left: 24%;
+    margin-left: 20%;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1301px) {
   body main #search-section .search-wrapper .search-icon {
     margin-left: 30%;
   }
@@ -1320,7 +1320,7 @@ body #content-mobile #panel-mobile {
   width: 350px;
   height: 350px;
   border: 1px solid #572EE5;
-  margin: 150px auto 200px auto;
+  margin: 100px auto 100px auto;
   position: relative;
   text-align: center;
 }
@@ -1349,14 +1349,14 @@ body #content-mobile #panel-mobile .corner-3 {
   -webkit-clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
           clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
   position: relative;
-  top: 105px;
+  top: 73px;
   right: 130px;
 }
 body #content-mobile #panel-mobile .corner-4 {
   -webkit-clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
           clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
   position: relative;
-  top: 105px;
+  top: 73px;
   left: 130px;
 }
 body #content-mobile #panel-mobile .title {
@@ -1439,7 +1439,7 @@ body #content-mobile #panel-mobile p {
     max-width: 700px;
     height: 330px;
     border: 1px solid #572EE5;
-    margin: 4px auto 24px auto;
+    margin: 4px auto 50px auto;
     position: relative;
     top: 0;
     text-align: center;
@@ -1621,19 +1621,22 @@ body #content-mobile #panel-mobile p {
   body main #panel .title {
     margin-top: 90px;
   }
-  body footer + .purple-line {
-    margin-bottom: 300px;
-  }
 }
 @media screen and (min-width: 1500px) {
   body main .film-roll-1, body main .film-roll-2 {
     left: 185px;
+  }
+  body main #panel {
+    height: 410px;
   }
   body main #img-camera {
     left: 70px;
   }
   body main .light {
     left: 70px;
+  }
+  body main .line {
+    margin-bottom: 25px;
   }
 }
 body.dark-mode {

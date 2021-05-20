@@ -194,10 +194,12 @@ input.addEventListener("input", () => {
 
 const mainSearchWrapper = document.getElementById("main-search-wrapper");
 const topSearchWrapper = document.querySelector(".top-search-wrapper");
+//const mainInput = document.querySelector("main #main-search-wrapper .search-input");
 const stickyPoint = mainSearchWrapper.offsetTop;
+//const stickyPoint = mainInput.offsetTop;
 
 window.addEventListener("scroll", function() {
-  if (window.pageYOffset >= stickyPoint) {
+  if (window.pageYOffset > stickyPoint) {
     topSearchWrapper.style.visibility = "visible";
   } else {
     topSearchWrapper.style.visibility = "hidden";

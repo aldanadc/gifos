@@ -77,7 +77,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
         const img = document.createElement("img");
         const gifOverlay = document.createElement("div");
         img.setAttribute("class", "my-gif");
-        img.setAttribute("class", "gif");
+        img.classList.add("gif");
         gifContainer.setAttribute("class", "gif-container");
         gifOverlay.setAttribute("class", "gif-overlay");
         myGifId = gifId;
@@ -91,15 +91,8 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
         gifContainer.appendChild(img);
         gifContainer.appendChild(gifOverlay);
         myGifsContent.appendChild(gifContainer);
-  
-        //createMyGifIcons(gifOverlay);
-  
-        //displayIconsOnHover(gifOverlay);
+
       }
-  
-      //changeIconsOnHover();
-  
-      //trashIconsOnHover();
   
       removeFromMyGifs();
 

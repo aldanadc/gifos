@@ -507,6 +507,13 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
           favIcon.src = "images/icon-fav.svg";
         }
 
+        const darkMode = localStorage.getItem("dark-mode-active");
+        if (darkMode === "true") {
+          closeBtn.setAttribute("src", "images/close-modo-noct.svg");
+        }else {
+          closeBtn.setAttribute("src", "images/close.svg");
+        }
+
         downloadIcon.src = "images/icon-download.svg";
         favIcon.classList.add("fav-icon");
         downloadIcon.classList.add("download-icon");

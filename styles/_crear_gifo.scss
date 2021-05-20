@@ -40,7 +40,7 @@ body {
       width: 350px;
       height: 350px;
       border: 1px solid $purple;
-      margin: 150px auto 200px auto;
+      margin: 100px auto 100px auto;
       position: relative;
       //top: 150px;
       text-align: center;
@@ -70,14 +70,14 @@ body {
       .corner-3 {
         clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0, 100% 96%, 4% 96%, 4% 0);
         position: relative;
-        top: 105px;
+        top: 73px;
         right: 130px;
       }
   
       .corner-4 {
         clip-path: polygon(0% 0%, 0 100%, 0 0, 0 0, 96% 0, 96% 96%, 0 96%, 0 100%, 100% 100%, 100% 0);
         position: relative;
-        top: 105px;
+        top: 73px;
         left: 130px;
       }
   
@@ -169,7 +169,7 @@ body {
         height: 330px;
         border: 1px solid $purple;
         //margin: -150px auto 0 auto;
-        margin: 4px auto 24px auto; //70
+        margin: 4px auto 50px auto; //24
         position: relative;
         top: 0;
         text-align: center;
@@ -363,7 +363,6 @@ body {
       .film-roll-3 {
         position: relative;
         left: 80%;
-        //top: 650px;
       }
     
       .line {
@@ -436,10 +435,6 @@ body {
           }
         }
       }
-
-      footer + .purple-line {
-        margin-bottom: 300px;
-      }
     }
   }
 
@@ -452,6 +447,10 @@ body {
       .film-roll-1, .film-roll-2 {
         left: 185px;
       }
+
+      #panel {
+        height: 410px;
+      }
     
       #img-camera {
         left: 70px;
@@ -460,9 +459,20 @@ body {
       .light {
         left: 70px;
       }
+
+      .line {
+        margin-bottom: 25px;
+      }
+    }
+
+    
+
+    // footer + .purple-line {
+    //   margin-bottom: 400px;
+    //   }
     }
   }
-}
+
 
 ////COPIADO:
 
