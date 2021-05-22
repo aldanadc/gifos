@@ -41,8 +41,6 @@ function loadMyGifs(offset, dataLength, storedGifs) {
 
     displayIconsOnHover(gifOverlay);
   }
-
-  //changeIconsOnHover();
   
   trashIconsOnHover();
   
@@ -65,8 +63,8 @@ function loadMyGifsMobile(offset, dataLength, storedGifs) {
       img.id = data.data.id;
       createGifInfo(gifOverlay, data.data);
     }).catch(e => {
-      console.log(e)
-      console.log("Lo sentimos, puede que algunos de los gifs guardados ya no existan en Giphy");
+      console.log(e);
+      alert("Lo sentimos, puede que algunos de los gifs guardados ya no existan en Giphy y no se muestren correctamente.");
     });
 
     img.setAttribute("class", "my-gif");
@@ -91,12 +89,10 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
 
       if (myStoredGifsArray.length <= 12) {
         loadMyGifs(offset, myStoredGifsArray.length, myStoredGifsArray);
-        console.log(offset);
       }else if (myStoredGifsArray.length > 12) {
         verMasBtn.style.display = "block";
         loadMyGifs(offset, 12, myStoredGifsArray);
         offset += 12;
-        console.log(offset);
         verMasBtn.classList.remove("hidden");
       }
 
@@ -116,12 +112,10 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
 
       if (myStoredGifsArray.length <= 12) {
         loadMyGifsMobile(offset, myStoredGifsArray.length, myStoredGifsArray);
-        console.log(offset);
       }else if (myStoredGifsArray.length > 12) {
         verMasBtn.style.display = "block";
         loadMyGifsMobile(offset, 12, myStoredGifsArray);
         offset += 12;
-        console.log(offset);
         verMasBtn.classList.remove("hidden");
       }
 
@@ -138,11 +132,9 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
 
 
 function loadMoreMyGifs() {
-  console.log(offset);
   if ((myStoredGifsArray.length - offset) > 12) {
     loadMyGifs(offset, offset + 12, myStoredGifsArray);
     offset += 12;
-    console.log(offset);
   }else {
     loadMyGifs(offset, myStoredGifsArray.length, myStoredGifsArray);
     offset += (myStoredGifsArray.length - offset)
@@ -155,11 +147,9 @@ function loadMoreMyGifs() {
 
 
 function loadMoreMyGifsMobile() {
-  console.log(offset);
   if ((myStoredGifsArray.length - offset) > 12) {
     loadMyGifsMobile(offset, offset + 12, myStoredGifsArray);
     offset += 12;
-    console.log(offset);
     maxGif();
   } else {
     loadMyGifsMobile(offset, myStoredGifsArray.length, myStoredGifsArray);
@@ -232,10 +222,7 @@ function maxMyGifs() {
 showMyGifs();
 
 
-
-//VER ICONITO DE TRASH QUE QUIZÁS SE REPITE EN OTRA FUNCION
 function createMyGifIcons(eachOverlayDiv) {
-  //CREA UN SOLO GRUPO DE ÍCONOS POR CADA DIV
     const iconsWrapper = document.createElement("div");
     const trashIcon = document.createElement("img");
     const downloadIcon = document.createElement("img");
@@ -258,7 +245,6 @@ function trashIconsOnHover() {
 
   trashIcons.forEach(icon => {
     icon.addEventListener("mouseenter", () => {
-      console.log("hola");
       icon.src = "images/icon-trash-hover.svg";
     })
 
@@ -296,7 +282,6 @@ function removeFromMyGifs() {
 
 function removeFromMyGifsMobile() {
   const trashIcons = document.querySelectorAll(".trash-icon");
-  console.log("remove disparó");
   trashIcons.forEach(icon => {
     icon.addEventListener("click", () => {
       const myStoredGifs = localStorage.getItem("my-gifs");
@@ -317,276 +302,3 @@ function removeFromMyGifsMobile() {
     })
   })
 }
-
-
-
-
-//** */ ASÍ ESTABA ANTES DE INTENTAR HACER EL PAGINADO DE A 12
-// if (window.matchMedia("(max-width: 1023px)").matches) {
-//   noContentP.textContent = "¡Anímate a crear tu primer GIFO! Visítanos en versión desktop";
-// }
-
-// const fetchMyGifs = async () => {
-//   const response = await fetch(`https://api.giphy.com/v1/gifs/${myGifId}?api_key=${APIkey}`);
-//   const data = await response.json();
-//   return data
-// }
-
-// if (window.matchMedia("(min-width: 1024px)").matches) {
-//   menu.style.marginLeft = "35%";
-
-//   function showMyGifs() {
-//     const hasmyGifs = localStorage.getItem("has-my-gifs");
-//     const myStoredGifs = localStorage.getItem("my-gifs");
-//     const myStoredGifsArray = JSON.parse(myStoredGifs);
-  
-//     if (hasmyGifs === "true") {
-//       myGifsNoContent.classList.add("hidden");
-  
-//       for (let gifId of myStoredGifsArray) { 
-//         const gifContainer = document.createElement("section");
-//         const img = document.createElement("img");
-//         const gifOverlay = document.createElement("div");
-//         img.setAttribute("class", "my-gif");
-//         gifContainer.setAttribute("class", "gif-container");
-//         gifOverlay.setAttribute("class", "gif-overlay");
-//         myGifId = gifId;
-  
-//         // fetchMyGifs().then(data => {
-//         //   img.src = data.data.images.fixed_height.url;
-//         //   img.setAttribute("id", data.data.id)
-//         //   createGifInfo(gifOverlay, data.data);
-
-//         fetchGif(myGifId, APIkey).then(data => {
-//           img.src = data.data.images.fixed_height.url;
-//           img.setAttribute("id", data.data.id)
-//           createGifInfo(gifOverlay, data.data);
-//         }).catch(e => console.log(e)); 
-  
-//         gifContainer.appendChild(img);
-//         gifContainer.appendChild(gifOverlay);
-//         myGifsContent.appendChild(gifContainer);
-  
-//         createMyGifIcons(gifOverlay);
-  
-//         displayIconsOnHover(gifOverlay);
-//       }
-  
-//       changeIconsOnHover();
-  
-//       trashIconsOnHover();
-  
-//       removeFromMyGifs();
-  
-//       //maxGif();
-  
-//     }else {
-//       myGifsNoContent.classList.remove("hidden")
-//     }
-//   }  
-// }else {
-//   function showMyGifs() {
-//     const hasmyGifs = localStorage.getItem("has-my-gifs");
-//     const myStoredGifs = localStorage.getItem("my-gifs");
-//     const myStoredGifsArray = JSON.parse(myStoredGifs);
-  
-//     if (hasmyGifs === "true") {
-//       myGifsNoContent.classList.add("hidden");
-  
-//       for (let gifId of myStoredGifsArray) { 
-//         const gifContainer = document.createElement("section");
-//         const img = document.createElement("img");
-//         const gifOverlay = document.createElement("div");
-//         img.setAttribute("class", "my-gif");
-//         img.classList.add("gif");
-//         gifContainer.setAttribute("class", "gif-container");
-//         gifOverlay.setAttribute("class", "gif-overlay");
-//         myGifId = gifId;
-  
-//         fetchMyGifs().then(data => {
-//           img.src = data.data.images.fixed_height.url;
-//           img.setAttribute("id", data.data.id)
-//           createGifInfo(gifOverlay, data.data);
-//         }).catch(e => console.log(e)); 
-  
-//         gifContainer.appendChild(img);
-//         gifContainer.appendChild(gifOverlay);
-//         myGifsContent.appendChild(gifContainer);
-//       }
-  
-//       removeFromMyGifs();
-
-//     }else {
-//       myGifsNoContent.classList.remove("hidden");
-//     }
-//   }
-// }
-
-//** */
-
-
-
-
-//ESTO ES MÁS VIEJO
-// if (window.matchMedia("(max-width: 1023px)").matches) {
-//   noContentP.textContent = "¡Anímate a crear tu primer GIFO! Visítanos en versión desktop";
-// }
-
-// const fetchMyGifs = async () => {
-//   const response = await fetch(`https://api.giphy.com/v1/gifs/${myGifId}?api_key=${APIkey}`);
-//   const data = await response.json();
-//   return data
-// }
-
-// if (window.matchMedia("(min-width: 1024px)").matches) {
-//   menu.style.marginLeft = "35%";
-
-//   function showMyGifs() {
-//     const hasmyGifs = localStorage.getItem("has-my-gifs");
-//     const myStoredGifs = localStorage.getItem("my-gifs");
-//     const myStoredGifsArray = JSON.parse(myStoredGifs);
-  
-//     if (hasmyGifs === "true") {
-//       myGifsNoContent.classList.add("hidden");
-  
-//       for (let gifId of myStoredGifsArray) { 
-//         const gifContainer = document.createElement("section");
-//         const img = document.createElement("img");
-//         const gifOverlay = document.createElement("div");
-//         img.setAttribute("class", "my-gif");
-//         gifContainer.setAttribute("class", "gif-container");
-//         gifOverlay.setAttribute("class", "gif-overlay");
-//         myGifId = gifId;
-  
-//         // fetchMyGifs().then(data => {
-//         //   img.src = data.data.images.fixed_height.url;
-//         //   img.setAttribute("id", data.data.id)
-//         //   createGifInfo(gifOverlay, data.data);
-
-//         fetchGif(myGifId, APIkey).then(data => {
-//           img.src = data.data.images.fixed_height.url;
-//           img.setAttribute("id", data.data.id)
-//           createGifInfo(gifOverlay, data.data);
-//         }).catch(e => console.log(e)); 
-  
-//         gifContainer.appendChild(img);
-//         gifContainer.appendChild(gifOverlay);
-//         myGifsContent.appendChild(gifContainer);
-  
-//         createMyGifIcons(gifOverlay);
-  
-//         displayIconsOnHover(gifOverlay);
-//       }
-  
-//       changeIconsOnHover();
-  
-//       trashIconsOnHover();
-  
-//       removeFromMyGifs();
-  
-//       //maxGif();
-  
-//     }else {
-//       myGifsNoContent.classList.remove("hidden")
-//     }
-//   }  
-// }else {
-//   function showMyGifs() {
-//     const hasmyGifs = localStorage.getItem("has-my-gifs");
-//     const myStoredGifs = localStorage.getItem("my-gifs");
-//     const myStoredGifsArray = JSON.parse(myStoredGifs);
-  
-//     if (hasmyGifs === "true") {
-//       myGifsNoContent.classList.add("hidden");
-  
-//       for (let gifId of myStoredGifsArray) { 
-//         const gifContainer = document.createElement("section");
-//         const img = document.createElement("img");
-//         const gifOverlay = document.createElement("div");
-//         img.setAttribute("class", "my-gif");
-//         img.classList.add("gif");
-//         gifContainer.setAttribute("class", "gif-container");
-//         gifOverlay.setAttribute("class", "gif-overlay");
-//         myGifId = gifId;
-  
-//         fetchMyGifs().then(data => {
-//           img.src = data.data.images.fixed_height.url;
-//           img.setAttribute("id", data.data.id)
-//           createGifInfo(gifOverlay, data.data);
-//         }).catch(e => console.log(e)); 
-  
-//         gifContainer.appendChild(img);
-//         gifContainer.appendChild(gifOverlay);
-//         myGifsContent.appendChild(gifContainer);
-
-//       }
-  
-//       removeFromMyGifs();
-
-//     }else {
-//       myGifsNoContent.classList.remove("hidden");
-//     }
-//   }
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//ESTO ESTABA DE ANTES:
-
-// function showMyGifs() {
-//   const hasmyGifs = localStorage.getItem("has-my-gifs");
-//   const myStoredGifs = localStorage.getItem("my-gifs");
-//   const myStoredGifsArray = JSON.parse(myStoredGifs);
-
-//   if (hasmyGifs === "true") {
-//     myGifsNoContent.classList.add("hidden");
-
-//     for (let gifId of myStoredGifsArray) { 
-//       const gifContainer = document.createElement("section");
-//       const img = document.createElement("img");
-//       const gifOverlay = document.createElement("div");
-//       img.setAttribute("class", "my-gif");
-//       gifContainer.setAttribute("class", "gif-container");
-//       gifOverlay.setAttribute("class", "gif-overlay");
-//       myGifId = gifId;
-
-//       fetchMyGifs().then(data => {
-//         img.src = data.data.images.fixed_height.url;
-//         img.setAttribute("id", data.data.id)
-//         createGifInfo(gifOverlay, data.data);
-//       })
-
-//       gifContainer.appendChild(img);
-//       gifContainer.appendChild(gifOverlay);
-//       myGifsContent.appendChild(gifContainer);
-
-//       createMyGifIcons(gifOverlay);
-
-//       displayIconsOnHover(gifOverlay);
-//     }
-
-//     changeIconsOnHover();
-
-//     trashIconsOnHover();
-
-//     removeFromMyGifs();
-
-//     //maxGif();
-
-//   } else if (hasmyGifs === false) {
-//     myGifsNoContent.style.display = "block";
-//   }
-// }

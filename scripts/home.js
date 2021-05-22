@@ -6,13 +6,7 @@ const navBar = document.querySelector("#nav");
 const grayGlass = document.getElementById("search-icon-gray");
 const pTrending = document.getElementById("trending-topics");
 const suggField = document.getElementById("suggestions-wrapper");
-
 let searchOffset = 0;
-
-
-// if (window.matchMedia("(min-width: 1024px)").matches) {
-//   menu.style.backgroundColor = "#37383C";
-// }
 
 
 //OBTENER INFO TTs
@@ -37,14 +31,13 @@ function searchGifs(inputValue) {
 
   changeIconsOnSearch();
 
-  async function newSearch(searchTerm) { //LLAMADO A API PARA BUSCAR
+  async function newSearch(searchTerm) {
     const searchUrl = `https://api.giphy.com/v1/gifs/search?api_key=${APIkey}&q=${searchTerm}&limit=12&offset=${searchOffset}`;
     const response = await fetch(searchUrl);
     const data = await response.json();
     return data
   };
 
-  console.log(inputValue);
   newSearch(inputValue) //INICIAR NUEVA BÚSQUEDA CON INPUT
     .then(results => {
       displaySearchTitle(inputValue); //MUESTRA TÍTULO E INPUT DE LO QUE SE BUSCÓ
@@ -53,13 +46,14 @@ function searchGifs(inputValue) {
       if (results.data.length === 0) {
         noResults();
       } else {
-        //FUNCION PARA PINTAR GIFS SI SÍ ENCUENTRA ALGO
+        //PINTAR GIFS SI SÍ ENCUENTRA ALGO
         displayGifs(results);
       }
 
       const resultsSection = document.querySelector("#search-results #before-title");
       const resultsSectionOffset = resultsSection.offsetTop;
       const scrollToPoint = resultsSectionOffset - (resultsSectionOffset*0.12);
+
       window.scroll({
         top: scrollToPoint,
         behavior: 'smooth'
@@ -139,8 +133,19 @@ topInput.addEventListener("keyup", (event) => {
   if (event.key === "Enter") {
     searchGifs(topInput.value);
   }
-  // const topMagGlass = document.querySelector(".top-search-icon");
+
   topMagGlass.style.marginTop = 0;
+  magGlass.style.width = "20px"; // BÚSQUEDA DE ARRIBA NO MODIFIQUE ÍCONO DE BARRA DE BÚSQUEDA PRINCIPAL
+  magGlass.style.height = "20px";
+
+  const darkMode = localStorage.getItem("dark-mode-active");
+
+    if (darkMode === "false") {
+      magGlass.src = "images/icon-search.svg";
+    }else {
+      magGlass.src = "images/icon-search-modo-noct.svg";
+    }
+
   input.value = "";
 });
 
@@ -152,9 +157,6 @@ topMagGlass.addEventListener("click", () => {
   input.value = "";
   cancelSearch();
 
-  // topMagGlass.addEventListener("click", () => {
-  //     cancelSearch();
-  // })
 })
 
 
@@ -175,21 +177,10 @@ input.addEventListener("input", () => {
   }
 })
 
-// topInput.addEventListener("input", () => {
-//   if (input.value.length >= 3) { //SUGIERE A PARTIR DE TRES LETRAS
-//     showSuggestions(input);
-//     cancelSearch();
-//   } else {
-//     cleanSuggBox();
-//   }
-// })
-
 
 const mainSearchWrapper = document.getElementById("main-search-wrapper");
 const topSearchWrapper = document.querySelector(".top-search-wrapper");
-//const mainInput = document.querySelector("main #main-search-wrapper .search-input");
 const stickyPoint = mainSearchWrapper.offsetTop;
-//const stickyPoint = mainInput.offsetTop;
 
 window.addEventListener("scroll", function() {
   if (window.pageYOffset > stickyPoint) {
@@ -199,12 +190,3 @@ window.addEventListener("scroll", function() {
   }
 });
 
-
-// var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
-
-//   for (i in sections) {
-//     if (sections[i] <= scrollPosition) {
-//       document.querySelector('.active').setAttribute('class', ' ');
-//       document.querySelector('a[href*=' + i + ']').setAttribute('class', 'active');
-//     }
-//   }

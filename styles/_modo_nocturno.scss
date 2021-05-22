@@ -12,7 +12,7 @@ body.dark-mode {
   }
 
   .max-container {
-    background-color: $background_dark_mode;
+    background-color: rgba(55, 56, 60, 0.9);
 
     .gif-title, .gif-user {
       color: #fff;
@@ -85,10 +85,6 @@ body.dark-mode {
       .title, p {
         color: #fff;
       }
-
-      // p {
-      //   color: #fff;
-      // }
     }
 
     #fav-section {
@@ -147,8 +143,9 @@ body.dark-mode {
   #content-mobile {
     #panel-mobile {
       border-color: #fff;
+      color: #fff;
 
-      .title, #first-p, #second-p {
+      .title {
         color: #fff;
       }
     }

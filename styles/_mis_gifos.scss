@@ -1,5 +1,4 @@
 body {
-
   main {
     #mis-gifos-section {
       width: 100%;
@@ -55,47 +54,6 @@ body {
           .gif-title {
             display: none;
           }
-  
-          // .gif-overlay {
-          //   width: 156px;
-          //   height: 120px;
-          //   position: absolute;
-          //   top: 0px;
-  
-          //   .icons-wrapper {
-          //     display: flex;
-          //     visibility: hidden;
-          //     width: 115px;
-          //     justify-content: space-between;
-          //     margin-top: 10px;
-          //     margin-left: 133px;
-          //   }
-  
-          //   .gif-user, .gif-title {
-          //     color: #fff;
-          //     position: absolute;
-          //     text-align: left;
-          //     visibility: hidden;
-          //   }
-  
-          //   .gif-user {
-          //     font-size: 0.9375rem;
-          //     line-height: 1.125rem;
-          //     top: 122px;
-          //     left: 18px;
-          //   }
-  
-          //   .gif-title {
-          //     font-size: 1rem;
-          //     line-height: 1.1875rem;
-          //     top: 144px;
-          //     left: 18px;
-          //   }
-        //}
-  
-          // .gif-overlay:hover {
-          //   background-color: $purple06opacity;
-          // }
         }
       }
 
@@ -105,8 +63,6 @@ body {
     }
   }
 }
-
-
 
 
 @media screen and (min-width: 1024px) {
@@ -123,7 +79,6 @@ body {
         }
   
         .flex-wrapper {
-          //width: 100%;
   
           #mis-gifos-no-content {
             img {
@@ -210,4 +165,3 @@ body {
     }
   }
 }
-  

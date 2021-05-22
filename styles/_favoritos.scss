@@ -2,7 +2,6 @@ body {
   main {
     #fav-section {
       width: 100%;
-      //padding-bottom: 57px;
   
       .section-icon {
         margin-top: 5px;
@@ -18,9 +17,7 @@ body {
   
       .flex-wrapper {
         width: 100%;
-        //justify-content: center;
-        //margin-bottom: 57px;
-  
+
         #fav-no-content {
           width: 100%;
 
@@ -41,14 +38,11 @@ body {
         }
   
         #fav-with-content {
-          //padding-bottom: 53px;
           padding: 0 2% 53px 2%;
-          //padding: 0 4% 53px 4%;
           max-width: 750px;
 
           .gif-container {
             position: relative;
-            //margin: 0 10px 22px 0;
             margin: 0 10px 22px 10px;
 
             .faved-gifs {
@@ -68,7 +62,6 @@ body {
 
       #ver-mas-favs {
         margin-bottom: 78px;
-        //display: none;
       }
     }
   }
@@ -77,13 +70,6 @@ body {
 
 @media screen and (min-width: 1024px) {
   body {
-    // header {
-    //   #nav{
-    //     #menu {
-    //       margin-left: 35%;
-    //     }
-    //   }
-    // }
     main {
       #fav-section {
         margin-top: 111px;
@@ -99,7 +85,6 @@ body {
         }
   
         .flex-wrapper {
-          //justify-content: center;
           #fav-no-content {
   
             img {
@@ -116,8 +101,6 @@ body {
           #fav-with-content {
             max-width: 1150px;
             padding: 0 5% 78px 5%;
-            //padding: 0 0 78px 0;
-            //margin: auto;
 
             .gif-container {
               width: 260px;
@@ -191,7 +174,6 @@ body {
           #fav-with-content {
             max-width: 1350px;
             padding: 0 3% 78px 3%;
-            //padding: 0 0 78px 0;
           }
         }
       }
@@ -199,43 +181,3 @@ body {
   }
 }
 
-
-
-// .gif-overlay {
-//   width: 41.6%;
-//   height: 200px;
-//   position: absolute;
-//   top: 0px;
-
-//   .icons-wrapper {
-//     display: flex;
-//     visibility: hidden;
-//     width: 115px;
-//     justify-content: space-between;
-//     margin-top: 10px;
-//     margin-left: 133px;
-//   }
-
-//   .gif-user, .gif-title {
-//     color: #fff;
-//     position: absolute;
-//     font-family: "Roboto", sans-serif;
-//     text-align: left;
-//     visibility: hidden;
-//   }
-
-//   .gif-user {
-//     font-size: 0.9375rem;
-//     line-height: 1.125rem;
-//     font-weight: 400;
-//     top: 122px;
-//     left: 18px;
-//   }
-
-//   .gif-title {
-//     font-size: 1rem;
-//     line-height: 1.1875rem;
-//     font-weight: 700;
-//     top: 144px;
-//     left: 18px;
-//   }

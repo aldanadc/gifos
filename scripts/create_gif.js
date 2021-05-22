@@ -10,6 +10,8 @@ const secondP = document.querySelector("#second-p");
 const stepOne = document.querySelector("#paso-a-paso span:first-of-type");
 const stepTwo = document.querySelector("#paso-a-paso span:nth-of-type(2)");
 const stepThree = document.querySelector("#paso-a-paso span:nth-of-type(3)");
+const firstCorner = document.querySelector(".corner-1");
+const secondCorner = document.querySelector(".corner-2");
 const thirdCorner = document.querySelector(".corner-3");
 const fourthCorner = document.querySelector(".corner-4");
 const cameraStream = document.querySelector(".cam-stream");
@@ -19,9 +21,9 @@ const createdGifOverlay = document.querySelector(".created-gif-overlay");
 const mobileView = document.querySelector("#content-mobile");
 const desktopView = document.querySelector("main");
 const cameraConditions = { audio: false, video: { height: { max: 300 }, width: { max: 600 } } };
-const APIkey = "xuMDkSg7dnKR2qernbZ0b58a42n5X2Bn";
-const uploadUrl = `https://upload.giphy.com/v1/gifs?api_key=${APIkey}`;
 const createdGifImg = document.querySelector(".created-gif");
+const nav = document.querySelector("#nav");
+
 let form = new FormData();
 let recorder;
 let myGifId;
@@ -55,6 +57,7 @@ burger.addEventListener("click", () => {
 })
 
 if (window.matchMedia("(min-width: 1024px)").matches) {
+  nav.style.position = "static";
   mobileView.style.display = "none";
   menu.style.marginLeft = "35%";
   createGifBtn.addEventListener("click", () => {
@@ -62,8 +65,6 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     firstP.innerHTML = "El acceso a tu camara será válido sólo";
     secondP.innerHTML = "por el tiempo en el que estés creando el GIFO.";
     stepOne.classList.add("active");
-    //createGifBtn.classList.add("hidden");
-    //createGifBtn.style.visibility = "hidden";
     requestCameraAccess();
   })
 
@@ -79,13 +80,14 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
         cameraStream.srcObject = stream;
         cameraStream.play();
 
-        createGifBtn.classList.add("hidden"); //** */
+        createGifBtn.classList.add("hidden");
         recordBtn.classList.remove("hidden");
-        //recordBtn.createGifBtn.style.visibility = "visible";
         stepOne.classList.remove("active");
         stepTwo.classList.add("active");
-        thirdCorner.style.top = "-3px";
-        fourthCorner.style.top = "-3px";
+        firstCorner.style.top = "25px";
+        secondCorner.style.top = "25px";
+        thirdCorner.style.top = "6px";
+        fourthCorner.style.top = "6px";
       })
 
     .catch(function errorCallback() {
@@ -98,10 +100,6 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
   })
 
 
-// function start(stream) {
-//   record(stream)
-// }
-
   function record(stream) {
     recorder = RecordRTC(stream,
       {
@@ -112,9 +110,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
         hidden: 240,
         onGifRecordingStarted: function () {
           recordBtn.classList.add("hidden");
-          //recordBtn.createGifBtn.style.visibility = "hidden";
           stopRecordingBtn.classList.remove("hidden");
-          //stopRecordingBtn.createGifBtn.style.visibility = "visible";
         },
       });
     console.log(recorder);
@@ -152,9 +148,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
 
   changeButtonsOnStop = () => {
     stopRecordingBtn.classList.add("hidden");
-    //stopRecordingBtn.createGifBtn.style.visibility = "hidden";
     uploadBtn.classList.remove("hidden");
-    //uploadBtn.createGifBtn.style.visibility = "visible";
     timerAndRepeat.innerHTML = "repetir captura".toUpperCase();
     timerAndRepeat.classList.add("repeatBtn");
     timerAndRepeat.addEventListener("click", () => {
@@ -166,20 +160,20 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     cameraStream.classList.remove("hidden");
     createdGifImg.classList.add("hidden");
     uploadBtn.classList.add("hidden");
-    //uploadBtn.createGifBtn.style.visibility = "hidden";
     requestCameraAccess();
   }
 
   const overlayContent = document.querySelector(".overlay-content");
   const overlayImg = overlayContent.children[1];
   const overlayP = overlayContent.children[2];
+  const APIkey = "xuMDkSg7dnKR2qernbZ0b58a42n5X2Bn";
+  const uploadUrl = `https://upload.giphy.com/v1/gifs?api_key=${APIkey}`;
 
   const uploadGif = async () => {
     createdGifOverlay.classList.remove("hidden");
     stepTwo.classList.remove("active");
     stepThree.classList.add("active");
     timerAndRepeat.classList.add("hidden");
-    //uploadBtn.classList.add("hidden");
     uploadBtn.style.visibility = "hidden";
 
     const response = await fetch(uploadUrl, {
@@ -187,10 +181,8 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
       body: form
     })
     const data = await response.json();
-    console.log(data)
     myGifId = data.data.id;
     addToMyGifs(myGifId);
-    console.log(myGifId);
     
     setTimeout(() => {
       overlayImg.src = "images/ok.svg";
@@ -207,23 +199,6 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
   createAnotherBtn.addEventListener("click", () => {
     location.reload()
   });
-
-// override "stop" method for all browsers
-  MediaStream.prototype.__stop = MediaStream.prototype.stop;
-  MediaStream.prototype.stop = function() {
-      this.getVideoTracks().forEach(function(track) {
-          if (!!track.stop) {
-              //console.log(track);
-              track.stop();
-          }
-      });
-
-      if (typeof this.__stop === 'function') {
-          // also calling the native "stop" method
-          this.__stop();
-      }
-  };
-
 
 
   function showTimer() {
@@ -297,7 +272,6 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
 
 
   function getCreatedGifLink() {
-    console.log(`https://giphy.com/gifs/${myGifId}`);
     const copy = document.createElement("input");
     copy.setAttribute("value", `https://giphy.com/gifs/${myGifId}`);
     document.body.appendChild(copy);
@@ -314,28 +288,37 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     if (hasMyGifs === "false") {
       localStorage.setItem("has-my-gifs", true);
       const myGifs = [];
-      myGifs.push(id)
-      console.log(myGifs);
+      myGifs.unshift(id)
 
       localStorage.setItem("my-gifs", JSON.stringify(myGifs));
     } 
     else {
       const myStoredGifs = localStorage.getItem("my-gifs");
       const myStoredGifsArray = JSON.parse(myStoredGifs);
-      myStoredGifsArray.push(id);
+      myStoredGifsArray.unshift(id);
 
       localStorage.setItem("my-gifs", JSON.stringify(myStoredGifsArray));
-      console.log(myStoredGifsArray);
     }
   }
 
-  function mediaIconsOnHover() {
-    const facebookIcon = document.getElementById("fb-icon");
-    const twitterIcon = document.getElementById("twitter-icon");
-    const instaIcon = document.getElementById("insta-icon");
+  mediaIconsOnHover();
+
+}else {
+  mobileView.style.display = "block";
+  desktopView.style.display = "none";
+}
+
+
+function mediaIconsOnHover() {
+  const facebookIcon = document.getElementById("fb-icon");
+  const twitterIcon = document.getElementById("twitter-icon");
+  const instaIcon = document.getElementById("insta-icon");
+  const darkMode = localStorage.getItem("dark-mode-active");
+
+  if (darkMode === "false") {
 
     facebookIcon.addEventListener("mouseenter", () => {
-      facebookIcon.src = "images/icon_facebook_noc.svg";
+      facebookIcon.src = "images/icon_facebook_hover.svg";
     })
 
     facebookIcon.addEventListener("mouseout", () => {
@@ -343,7 +326,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     })
 
     twitterIcon.addEventListener("mouseenter", () => {
-      twitterIcon.src = "images/icon_twitter_noc.svg";
+      twitterIcon.src = "images/icon-twitter-hover.svg";
     })
 
     twitterIcon.addEventListener("mouseout", () => {
@@ -351,39 +334,38 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     })
 
     instaIcon.addEventListener("mouseenter", () => {
-      instaIcon.src = "images/icon_instagram_noc.svg";
+      instaIcon.src = "images/icon_instagram-hover.svg";
     })
 
     instaIcon.addEventListener("mouseout", () => {
       instaIcon.src = "images/icon_instagram.svg";
     })
+  }else {
+    facebookIcon.addEventListener("mouseenter", () => {
+      facebookIcon.setAttribute("src", "images/icon_facebook_noc.svg");
+    })
+  
+    facebookIcon.addEventListener("mouseout", () => {
+      facebookIcon.setAttribute("src", "images/icon_facebook.svg");
+    })
+  
+    twitterIcon.addEventListener("mouseenter", () => {
+      twitterIcon.setAttribute("src", "images/icon_twitter_noc.svg");
+    })
+  
+    twitterIcon.addEventListener("mouseout", () => {
+      twitterIcon.setAttribute("src", "images/icon-twitter.svg");
+    })
+  
+    instaIcon.addEventListener("mouseenter", () => {
+      instaIcon.setAttribute("src", "images/icon_instagram_noc.svg");
+    })
+  
+    instaIcon.addEventListener("mouseout", () => {
+      instaIcon.setAttribute("src", "images/icon_instagram.svg");
+    })
   }
-
-  mediaIconsOnHover();
-
 }
-else {
-  mobileView.style.display = "block";
-  desktopView.style.display = "none";
-  //burger.style.display = "none";
-}
-// function changeIconsOnHover() {
-//   const iconDownload = document.querySelectorAll(".fav-icon");
-//   const iconDownload = document.querySelectorAll(".fav-icon");
-
-//   iconsFav.forEach(icon => {
-//     icon.addEventListener("mouseenter", () => {
-//       icon.src = "images/icon-fav-hover.svg";
-//     })
-
-//     icon.addEventListener("mouseout", () => {
-//       icon.src = "images/icon-fav.svg";
-//     })
-//   })
-// }
-
-
-
 
 
 

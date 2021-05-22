@@ -5,12 +5,12 @@ const searchTitle = document.getElementById("search-title");
 const beforeTitle = document.getElementById("before-title");
 
 
-//DEFINIR FUNCIÓN TRAER 0 RESULTADOS
+//FUNCIÓN TRAER 0 RESULTADOS
 let noResults = () => {
   noResultsDiv.style.display = "block";
 }
 
-//DEFINIR FUNCIÓN PARA LIMPIAR CAMPOS
+//FUNCIÓN PARA LIMPIAR CAMPOS
 const cleanFields = () => {
   resultsContainer.innerHTML = "";  //VACIAR GIFS ANTERIORES ANTES DE HACER NUEVA BÚSQUEDA
   if (noResultsDiv.style.display = "block") { //VACIAR NO RESULTS SI ESTABA
@@ -26,10 +26,9 @@ const cleanFields = () => {
 }
 
 
-//DEFINIR FUNCIÓN PARA MODIFICAR INPUT Y TÍTULO
+//MODIFICAR INPUT Y TÍTULO
 function displaySearchTitle(inputValue) {
   //MAYÚSCULA PRIMERA LETRA Y RESTO MINÚSCULA EN INPUT
-  //inputValue = (input.value).charAt(0).toUpperCase() + ((input.value).slice(1)).toLowerCase();
   inputValue= inputValue.charAt(0).toUpperCase() + ((inputValue).slice(1)).toLowerCase();
 
   //COMPLETA TÍTULO DE LO BUSCADO Y MUESTRA LÍNEA GRIS
@@ -68,15 +67,13 @@ function createGifs(results, dataLength) {
     createGifInfo(gifOverlay, results.data[i]);
   }
 
-  //displayIconsOnHover();
-
   changeIconsOnHover();
 
   addAndRemoveFavourites();
   
   downloadGif();
   
-  maxGif(results);
+  maxGif();
 }
 
 
@@ -127,7 +124,6 @@ const createSuggestions = (suggestions) => {
     suggestion.classList.add("suggestion-p");
     searchWrapper.style.height = "180px";
     suggField.appendChild(suggestion);
-    console.log(suggestion.innerHTML);
 
     suggestion.addEventListener("click", () => { //CONVIERTE SELECCIÓN DE SUGERENCIA EN INPUT Y BORRA EL RESTO
       input.value = suggestion.innerHTML;
@@ -140,7 +136,15 @@ const cleanSuggBox = () => {
   suggField.innerHTML = "";
   searchWrapper.style.height = "50px";
   grayGlass.style.visibility = "hidden";
-  magGlass.src = "images/icon-search.svg";
+
+  const darkMode = localStorage.getItem("dark-mode-active");
+
+  if (darkMode === "false") {
+    magGlass.src = "images/icon-search.svg";
+  }else {
+    magGlass.src = "images/icon-search-modo-noct.svg";
+  }
+
   magGlass.style.marginTop = "15px";
   magGlass.style.width = "20px";
   magGlass.style.height = "20px";
@@ -150,9 +154,11 @@ const cancelSearch = () => {
   magGlass.addEventListener("click", () => { //HACER CLICK EN CRUZ BORRA INPUT, CAMBIA A LUPA OTRA VEZ, BORRA SUGERENCIAS
     input.value = "";
 
-    if (body[0].classList.contains("dark-mode") !== true) {
+    const darkMode = localStorage.getItem("dark-mode-active");
+
+    if (darkMode === "false") {
       magGlass.src = "images/icon-search.svg";
-    } else {
+    }else {
       magGlass.src = "images/icon-search-modo-noct.svg";
     }
 

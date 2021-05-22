@@ -21,14 +21,10 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
 
       if (storedGifsArray.length <= 12) {
         loadFaves(offset, storedGifsArray.length, storedGifsArray);
-        //offset = offset + (storedGifsArray.length);
-        console.log(offset);
-        //verMasBtn.style.display = "none";
       } else if (storedGifsArray.length > 12) {
         verMasBtn.style.display = "block";
         loadFaves(offset, 12, storedGifsArray);
         offset += 12;
-        console.log(offset);
         verMasBtn.classList.remove("hidden");
       }
       
@@ -44,20 +40,16 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
 }else {
   function showFavourites() {
     const hasFavourites = localStorage.getItem("has-favourites");
-    // const storedGifs = localStorage.getItem("faved-gifs");
-    // const storedGifsArray = JSON.parse(storedGifs);
 
     if (hasFavourites === "true") {
       favNoContent.classList.add("hidden");
 
       if (storedGifsArray.length <= 12) {
         loadFavesMobile(offset, storedGifsArray.length, storedGifsArray);
-        console.log(offset);
       } else if (storedGifsArray.length > 12) {
         verMasBtn.style.display = "block";
         loadFavesMobile(offset, 12, storedGifsArray);
         offset += 12;
-        console.log(offset);
         verMasBtn.classList.remove("hidden");
       }
 
@@ -72,8 +64,6 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     loadMoreGifsMobile();
   })
 }
-
-//document.addEventListener("DOMContentLoaded", displayIconsOnHover, true);
 
 
 showFavourites();
@@ -91,8 +81,8 @@ function loadFaves(offset, dataLength, storedGifs) {
       img.id = data.data.id;
       createGifInfo(gifOverlay, data.data);
     }).catch(e => {
-      console.log(e)
-      console.log("Lo sentimos, puede que algunos de los gifs guardados ya no existan en Giphy");
+      console.log(e);
+      alert("Lo sentimos, puede que algunos de los gifs guardados ya no existan en Giphy y no se muestren correctamente.");
     });
 
     img.setAttribute("class", "faved-gifs");
@@ -108,26 +98,20 @@ function loadFaves(offset, dataLength, storedGifs) {
 
     displayIconsOnHover(gifOverlay);
 
-    // maxGif();
-
-    // addAndRemoveFavourites();
   }
 
   maxGif();
 
   addAndRemoveFavourites();
-  //setTimeout(displayIconsOnHover, 500);
-  //displayIconsOnHover();
+
 }
 
 
 
 function loadMoreGifs() {
-  console.log(offset);
   if ((storedGifsArray.length - offset) > 12) {
     loadFaves(offset, offset + 12, storedGifsArray);
     offset += 12;
-    console.log(offset);
   } else {
     loadFaves(offset, storedGifsArray.length, storedGifsArray);
     offset += (storedGifsArray.length - offset)
@@ -151,7 +135,7 @@ function loadFavesMobile(offset, dataLength, storedGifs) {
       img.id = data.data.id;
       createGifInfo(gifOverlay, data.data);
     }).catch(e => {
-      console.log(e)
+      console.log(e);
       alert("Lo sentimos, puede que algunos de los gifs guardados ya no existan en Giphy y no se muestren correctamente.");
     });
 
@@ -171,11 +155,9 @@ function loadFavesMobile(offset, dataLength, storedGifs) {
 
 
 function loadMoreGifsMobile() {
-  console.log(offset);
   if ((storedGifsArray.length - offset) > 12) {
     loadFavesMobile(offset, offset + 12, storedGifsArray);
     offset += 12;
-    console.log(offset);
     maxGif();
   } else {
     loadFavesMobile(offset, storedGifsArray.length, storedGifsArray);
@@ -188,100 +170,3 @@ function loadMoreGifsMobile() {
 }
 
 
-
-// if (window.matchMedia("(min-width: 1024px)").matches) {
-//   menu.style.marginLeft = "35%";
-//   function showFavourites() {
-//     const hasFavourites = localStorage.getItem("has-favourites");
-//     const storedGifs = localStorage.getItem("faved-gifs");
-//     const storedGifsArray = JSON.parse(storedGifs);
-
-//     if (hasFavourites === "true") {
-//       favNoContent.classList.add("hidden");
-
-//       for (let gifId of storedGifsArray) { 
-//         const gifContainer = document.createElement("section");
-//         const img = document.createElement("img");
-//         const gifOverlay = document.createElement("div");
-//         img.setAttribute("class", "faved-gifs");
-//         img.classList.add("faved-gif");
-//         gifContainer.setAttribute("class", "gif-container");
-//         gifOverlay.setAttribute("class", "gif-overlay");
-//         favedGifId = gifId;
-
-//         fetchGif(favedGifId, APIkey).then(data => {
-//           img.src = data.data.images.fixed_height.url;
-//           img.id = data.data.id;
-//           createGifInfo(gifOverlay, data.data);
-//         }).catch(e => {
-//           console.log(e)
-//           console.log("Lo sentimos, puede que algunos de los gifs guardados ya no existan en Giphy");
-//         });
-
-//         gifContainer.appendChild(img);
-//         gifContainer.appendChild(gifOverlay);
-//         favContent.appendChild(gifContainer);
-
-//         createGifIcons(gifOverlay);
-
-//         displayIconsOnHover(gifOverlay);
-//       }
-
-//       //displayIconsOnHover();
-
-//       // if (storedGifsArray.length > 12) {
-//       //   verMasBtn.style.display = "block";
-//       // }
-
-//     } else if (hasFavourites === false) {
-//       favNoContent.style.display = "block";
-//     }
-//   }
-
-// }else {
-//   function showFavourites() {
-//     const hasFavourites = localStorage.getItem("has-favourites");
-//     const storedGifs = localStorage.getItem("faved-gifs");
-//     const storedGifsArray = JSON.parse(storedGifs);
-
-//     if (hasFavourites === "true") {
-//       favNoContent.classList.add("hidden");
-
-//       for (let gifId of storedGifsArray) { 
-//         const gifContainer = document.createElement("section");
-//         const img = document.createElement("img");
-//         const gifOverlay = document.createElement("div");
-//         img.setAttribute("class", "faved-gifs");
-//         img.classList.add("gif");
-//         img.classList.add("faved-gif");
-//         gifContainer.setAttribute("class", "gif-container");
-//         gifOverlay.setAttribute("class", "gif-overlay");
-//         favedGifId = gifId;
-
-//         fetchGif(favedGifId, APIkey).then(data => {
-//           img.src = data.data.images.fixed_height.url;
-//           img.id = data.data.id;
-//           createGifInfo(gifOverlay, data.data);
-//         }).catch(e => {
-//           console.log(e);
-//           console.log("Lo sentimos, puede que algunos de los gifs guardados ya no existan en Giphy");
-//           });
-
-//         gifContainer.appendChild(img);
-//         gifContainer.appendChild(gifOverlay);
-//         favContent.appendChild(gifContainer);
-
-//       }
-
-//       addAndRemoveFavsMobile();
-
-//       //maxGif();
-
-//     } else if (hasFavourites === false) {
-//       favNoContent.style.display = "block";
-//     }
-//   }
-// }
-
-
-// showFavourites();

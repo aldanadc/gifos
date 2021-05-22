@@ -7,12 +7,10 @@ const filmRoll1 = document.querySelector(".film-roll-1");
 const filmRoll2= document.querySelector(".film-roll-2");
 const filmRoll3 = document.querySelector(".film-roll-3");
 const darkModeButton = document.querySelector("#btn-dark-mode");
-//const darkModeButton = document.querySelector("#btn-dark-mode");
-//const createBtn = document.getElementById("btn-create");
+
 
 function darkModeCreateGif() {
-  // const darkModeButton = document.querySelector("#btn-dark-mode");
-  // const createBtn = document.getElementById("btn-create");
+
   const darkMode = localStorage.getItem("dark-mode-active");
   
   if (darkMode === "true") {
@@ -21,20 +19,17 @@ function darkModeCreateGif() {
     logo.src = "images/Logo-modo-noc.svg";
     createBtn.src = "images/CTA-crear-gifo-active.svg";
     burger.src = "images/burger-modo-noct.svg";
-    //topBottomLine[0].style.backgroundColor = "#000";
-    //topBottomLine[1].style.backgroundColor = "#000";
     cameraImg.src = "images/camara-modo-noc.svg";
     filmRoll1.src = "images/element_cinta1-modo-noc.svg";
     filmRoll2.src = "images/element_cinta2-modo-noc.svg";
     filmRoll3.src = "images/pelicula-modo-noc.svg";
+
   }else {
     body[0].classList.remove("dark-mode");
     darkModeButton.innerHTML = "Modo Nocturno";
     logo.src = "images/logo-mobile.svg";
     createBtn.src = "images/CTA-crear-gifo-active.svg";
     burger.src = "images/burger.svg";
-    //topBottomLine[0].style.backgroundColor = "#572EE5";
-    //topBottomLine[1].style.backgroundColor = "#572EE5";
     cameraImg.src = "images/element-camara.svg";
     filmRoll1.src = "images/element_cinta1.svg";
     filmRoll2.src = "images/element_cinta2.svg";
@@ -60,6 +55,7 @@ darkModeButton.addEventListener("click", () => {
   darkModeCreateGif();
 })
 
+
 darkModeButton.addEventListener("click", () => {
 
   const darkMode = localStorage.getItem("dark-mode-active");
@@ -80,18 +76,3 @@ darkModeButton.addEventListener("click", () => {
     filmRoll3.src = "images/pelicula.svg";
   }
 })
-
-// function startLocalStorage() {
-//   const storedGifs = localStorage.getItem("faved");
-//   console.log(storedGifs);
-
-//   if (storedGifs === null){
-//     localStorage.setItem("hasFav", false);
-//     //localStorage.setItem("faved-gifs", false);
-
-//     console.log(localStorage.setItem("hasFav", false));
-//     console.log(storedGifs);
-//   }
-// }
-
-// startLocalStorage();
