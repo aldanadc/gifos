@@ -46,6 +46,8 @@ function loadMyGifs(offset, dataLength, storedGifs) {
   
   removeFromMyGifs();
 
+  downloadGif();
+
   maxGif();
 }
 

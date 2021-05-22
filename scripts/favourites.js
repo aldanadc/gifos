@@ -102,6 +102,8 @@ function loadFaves(offset, dataLength, storedGifs) {
 
   maxGif();
 
+  downloadGif();
+
   addAndRemoveFavourites();
 
 }

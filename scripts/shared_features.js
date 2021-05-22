@@ -497,7 +497,7 @@ function downloadGif() {
   const download = document.querySelectorAll(".download-icon");
 
   download.forEach(icon => {
-    icon.addEventListener("click", async () => {
+    icon.onclick = async () => { 
       const iconWrapper = icon.parentElement;
       const overlay = iconWrapper.parentElement;
       const title = overlay.children[2].textContent || "título";
@@ -505,22 +505,22 @@ function downloadGif() {
       let blob = await fetch(gif.src)
       .then(gif => gif.blob());
       invokeSaveAsDialog(blob, `${title}.gif`);
-    });
-  })
+    }
+  });
 }
 
 function downloadMaxedGif() {
   const download = document.querySelectorAll(".download-icon");
 
   download.forEach(icon => {
-    icon.addEventListener("click", async () => {
+    icon.onclick = async () => {
       const overlay = icon.parentElement;
       const title = overlay.children[3].textContent || "título";
       const gif = overlay.previousElementSibling;
       let blob = await fetch(gif.src)
       .then(gif => gif.blob());
       invokeSaveAsDialog(blob, `${title}.gif`);
-    })
+    }
   });
 }
 
