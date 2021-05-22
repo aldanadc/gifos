@@ -127,6 +127,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
 
     }else if (hasmyGifs === "false") {
       myGifsNoContent.style.display = "block";
+      noContentP.textContent = "¡Anímate a crear tu primer GIFO! Visítanos desde tu laptop o pc";
     }
   }
 
