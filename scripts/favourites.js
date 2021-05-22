@@ -152,7 +152,7 @@ function loadFavesMobile(offset, dataLength, storedGifs) {
       createGifInfo(gifOverlay, data.data);
     }).catch(e => {
       console.log(e)
-      console.log("Lo sentimos, puede que algunos de los gifs guardados ya no existan en Giphy");
+      alert("Lo sentimos, puede que algunos de los gifs guardados ya no existan en Giphy y no se muestren correctamente.");
     });
 
     img.setAttribute("class", "faved-gifs");
