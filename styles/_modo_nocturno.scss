@@ -22,6 +22,7 @@ body.dark-mode {
   header {
     #nav {
       background-color: $background_dark_mode;
+      border-color: #000;
 
       .search-wrapper {
         background-color: $background_dark_mode;
@@ -154,6 +155,9 @@ body.dark-mode {
   }
 
   footer {
+    border-color: #000;
+    background-color: $background_dark_mode;
+    
     p {
       color: #fff;
     }

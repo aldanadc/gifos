@@ -1,38 +1,4 @@
-@keyframes camera {
-  0%   {opacity: 0;}
-  25%  {opacity: 0.2;}
-  50%  {opacity: 0.4;}
-  100% {opacity: 0.6;}
-}
-
-@keyframes film-roll-1 {
-  0%   {transform: rotate(-0.25turn);}
-  25%  {transform: rotate(-0.5turn);}
-  50%  {transform: rotate(-0.75turn);}
-  100% {transform: rotate(-1turn);}
-}
-
-@keyframes film-roll-2 {
-  0%   {transform: rotate(0.25turn);}
-  25%  {transform: rotate(0.5turn);}
-  50%  {transform: rotate(0.75turn);}
-  100% {transform: rotate(1turn);}
-}
-
-@keyframes flicker {
-  0%   { opacity:0; }
-  25%  { opacity:1; }
-  50%  { opacity:0; }
-  75%  { opacity:1; }
-  100% { opacity:0; }
-}
-
-
 body {
-  // main {
-  //   display: none;
-  // }
-
   #content-mobile {
     #panel-mobile {
       //height: 500px;
@@ -321,6 +287,7 @@ body {
         display: flex;
         justify-content: space-between;
         width: 10%;
+        max-width: 160px;;
     
         .recordStep {
           width: 2rem;
@@ -419,6 +386,12 @@ body {
                 left: 85%;
                 top: -65px;
               }
+
+              .loader {
+                animation-name: loading;
+                animation-duration: 3s;
+                animation-timing-function: linear;
+              }
             }
           }
   
@@ -440,7 +413,6 @@ body {
 
 
 @media screen and (min-width: 1500px) {
-
   body {
     main {
       
@@ -472,6 +444,50 @@ body {
     //   }
     }
   }
+
+@keyframes camera {
+  0%   {opacity: 0;}
+  25%  {opacity: 0.2;}
+  50%  {opacity: 0.4;}
+  100% {opacity: 0.6;}
+}
+  
+@keyframes film-roll-1 {
+  0%   {transform: rotate(-0.25turn);}
+  25%  {transform: rotate(-0.5turn);}
+  50%  {transform: rotate(-0.75turn);}
+  100% {transform: rotate(-1turn);}
+}
+  
+@keyframes film-roll-2 {
+  0%   {transform: rotate(0.25turn);}
+  25%  {transform: rotate(0.5turn);}
+  50%  {transform: rotate(0.75turn);}
+  100% {transform: rotate(1turn);}
+}
+  
+@keyframes flicker {
+  0%   { opacity:0; }
+  25%  { opacity:1; }
+  50%  { opacity:0; }
+  75%  { opacity:1; }
+  100% { opacity:0; }
+}
+
+@keyframes loading {
+  0%   {transform: rotate(0.2turn);}
+  10%  {transform: rotate(0.4turn);}
+  20%  {transform: rotate(0.6turn);}
+  30%  {transform: rotate(0.8turn);}
+  40%  {transform: rotate(1turn);}
+  50%  {transform: rotate(1.2turn);}
+  60%  {transform: rotate(1.4turn);}
+  70%  {transform: rotate(1.6turn);}
+  80%  {transform: rotate(1.8turn);}
+  90%  {transform: rotate(2turn);}
+  100% {transform: rotate(2.2turn);}
+}
+  
 
 
 ////COPIADO:

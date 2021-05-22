@@ -54,16 +54,18 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
 
     displayTrendingGifs(data, 3);
 
+    trendingOffset += 3;
+
     maxGif();
 
     downloadGif();
 
     addAndRemoveFavourites();
 
-  });
+  }).catch(e => console.log(e));
 
   function displayTrendingGifs(data, dataLength) {
-
+    console.log(trendingOffset);
     for (let i = 0; i < dataLength; i++) {
       const gifContainer = document.createElement("section");
       const trendingGif = document.createElement("img");
@@ -75,6 +77,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
       trendingGif.setAttribute("id", data.data[i].id);
       trendGifsWrapper.appendChild(gifContainer);
       gifOverlay.setAttribute("class", "gif-overlay");
+      gifOverlay.style.display = "hidden"; //** */
       gifContainer.appendChild(trendingGif);
       gifContainer.appendChild(gifOverlay);
       
@@ -83,9 +86,9 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
       createGifInfo(gifOverlay, data.data[i]);
   
       displayIconsOnHover(gifOverlay);
-  
+      
     }
-  
+
     changeIconsOnHover();
   }
 
@@ -103,20 +106,30 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
       .then(data => {
         console.log(data);
 
+        console.log(trendingOffset);
+        
         displayTrendingGifs(data, 1);
 
-        maxGif();
+        maxGif(); 
 
         addAndRemoveFavourites();
-      });
+      }).catch(e => console.log(e));
       
 
-      sliderRight.style.marginLeft = "22px";
+      //sliderRight.style.marginLeft = "22px";
 
       //wrapper.scrollRight += 3000;
-      trendGifsWrapper.scrollBy({
+      // trendGifsWrapper.scrollBy({
+      // top: 0,
+      // left: 379,
+      // behavior: 'smooth'
+      // });
+  })
+
+  sliderRight.addEventListener("click", () => {
+    trendGifsWrapper.scrollBy({
       top: 0,
-      left: 297,
+      left: 379, //297
       behavior: 'smooth'
       });
   })
@@ -124,7 +137,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
   sliderLeft.addEventListener("click", () => {
     trendGifsWrapper.scrollBy({
       top: 0,
-      left: -297,
+      left: -379, //297
       behavior: 'smooth'
       });
   })
@@ -146,7 +159,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
 
     addAndRemoveFavsMobile();
 
-  });
+  }).catch(e => console.log(e));
 
   function displayTrendingGifs(data) {
     for (let i = 0; i < 15; i++) {
@@ -258,8 +271,33 @@ function createGifIcons(eachOverlayDiv) {
     }
 }
 
+//document.addEventListener("DOMContentLoaded", displayIconsOnHover, false);
+
 //MOSTRAR CON HOVER LOS ÍCONOS CREADOS SOBRE CADA DIV
 //let iconWrapper = document.getElementsByClassName("icon-wrapper");
+
+// function displayIconsOnHover() {
+//   const overlays = document.querySelectorAll(".gif-overlay");
+  
+//   for (let overlay of overlays) {
+//     overlay.addEventListener("mouseover", () => {
+//       overlay.style.display = "block";
+//       for (let i = 0; i < 3; i++) {
+//         overlay.children[i].style.visibility = "visible";
+//       }
+//     })
+
+//     overlay.addEventListener("mouseout", () => {
+//       overlay.style.display = "none";
+//       for (let i = 0; i < 3; i++) {
+//         overlay.children[i].style.visibility = "hidden";
+//       }
+//     })
+//   }
+// }
+
+
+
 function displayIconsOnHover(eachGifOverlay) {
   eachGifOverlay.addEventListener("mouseover", () => {
     for (let i = 0; i < 3; i++) {
@@ -277,25 +315,16 @@ function displayIconsOnHover(eachGifOverlay) {
 //CAMBIAR ÍCONOS HACIENDO HOVER
 function changeIconsOnHover() {
   const iconsFav = document.querySelectorAll(".fav-icon");
-  const storedGifs = localStorage.getItem("faved-gifs");
-  const storedGifsArray = JSON.parse(storedGifs);
 
   iconsFav.forEach(icon => {
-  //   icon.addEventListener("mouseenter", () => {
-  //     icon.src = "images/icon-fav-hover.svg";
-  //   })
-
-  //   icon.addEventListener("mouseout", () => {
-  //         icon.src = "images/icon-fav.svg";
-  //   })
-  // })
-
     icon.addEventListener("mouseenter", () => {
       const iconWrapper = icon.parentElement;
       const overlay = iconWrapper.parentElement;
       const gif = overlay.previousElementSibling;
       const hasFav = localStorage.getItem("has-favourites");
       if (hasFav === "true" ) {
+        const storedGifs = localStorage.getItem("faved-gifs");
+        const storedGifsArray = JSON.parse(storedGifs);
         const findIndex = storedGifsArray.findIndex(gifId => gifId === gif.id);
         if (findIndex === -1) {
           icon.src = "images/icon-fav-hover.svg";
@@ -439,7 +468,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
           maxedGif.id = data.data.id;
           console.log(maxedGif.id);
           createGifInfo(gifOverlay, data.data);
-        })
+        }).catch(e => console.log(e));
   
         closeBtn.classList.add("close-icon");
 
@@ -451,6 +480,15 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
         }
         
         downloadIcon.src = "images/icon-download.svg";
+
+        downloadIcon.addEventListener("mouseenter", () => {
+          downloadIcon.src = "images/icon-download-hover.svg";
+        })
+
+        downloadIcon.addEventListener("mouseout", () => {
+          downloadIcon.src = "images/icon-download.svg";
+        })
+
         favIcon.classList.add("fav-icon");
         downloadIcon.classList.add("download-icon");
         document.body.appendChild(maxContainer);
@@ -474,7 +512,8 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
   }
 }else {
   function maxGif() {
-    const allGifs = document.querySelectorAll(".gif");
+    //const allGifs = document.querySelectorAll(".gif");
+    const allGifs = document.querySelectorAll(".trending-gifs, .faved-gif, .result-gif");
     allGifs.forEach(gif => {
       gif.addEventListener("click", () => {
         const maxContainer = document.createElement("div");
@@ -492,7 +531,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
           maxedGif.src = data.data.images.original.url;
           maxedGif.id = data.data.id;
           createGifInfo(gifOverlay, data.data);
-        })
+        }).catch(e => console.log(e));
   
         closeBtn.setAttribute("src", "images/close.svg");
         closeBtn.classList.add("close-icon");
@@ -502,9 +541,14 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
         if (maxedGif.classList.contains("faved-gifs")) {
           //favIcon.src = "images/icon-fav-active.svg";
         }else if (gif.classList.contains("faved-gif")){
-          favIcon.src = "images/icon-fav-active.svg"; //ESTO TAMBIÉN!
+          favIcon.src = "images/icon-fav-active.svg";
+          favIcon.classList.add("fav-icon"); //ESTO TAMBIÉN!
+        }else if (gif.classList.contains("my-gif")) {
+          favIcon.src = "images/icon-trash-normal.svg";
+          favIcon.classList.add("trash-icon"); 
         }else { //NO SACAR ESTO, SIRVE!!!
           favIcon.src = "images/icon-fav.svg";
+          favIcon.classList.add("fav-icon");
         }
 
         const darkMode = localStorage.getItem("dark-mode-active");
@@ -515,7 +559,6 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
         }
 
         downloadIcon.src = "images/icon-download.svg";
-        favIcon.classList.add("fav-icon");
         downloadIcon.classList.add("download-icon");
   
         document.body.appendChild(maxContainer);
@@ -532,7 +575,6 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
         downloadMaxedGif();
 
         addAndRemoveFavsMobile();
-
       })
     })
   }  
@@ -545,14 +587,10 @@ function checkIfFavedMax(icon) {
   const storedGifs = localStorage.getItem("faved-gifs");
   const storedGifsArray = JSON.parse(storedGifs);
   const overlay = icon.parentElement;
-  console.log(overlay);
-  //const overlay = iconWrapper.parentElement;
   const gif = overlay.previousElementSibling;
   const findIndex = storedGifsArray.findIndex(gifId => gifId === gif.id);
   if (findIndex != -1) {
     gif.classList.add("faved-gif");
-    console.log("Class added");
-    //console.log("puso ícono fav normal");
   }
 }
 
@@ -589,13 +627,13 @@ function downloadGif() {
     icon.addEventListener("click", async () => {
       const iconWrapper = icon.parentElement;
       const overlay = iconWrapper.parentElement;
-      const title = overlay.children[2].textContent;
+      const title = overlay.children[2].textContent || "título";
       const gif = overlay.previousElementSibling;
       let blob = await fetch(gif.src)
       .then(gif => gif.blob());
       invokeSaveAsDialog(blob, `${title}.gif`);
-    })
-  });
+    });
+  })
 }
 
 function downloadMaxedGif() {
@@ -604,7 +642,7 @@ function downloadMaxedGif() {
   download.forEach(icon => {
     icon.addEventListener("click", async () => {
       const overlay = icon.parentElement;
-      const title = overlay.children[3].textContent;
+      const title = overlay.children[3].textContent || "título";
       const gif = overlay.previousElementSibling;
       let blob = await fetch(gif.src)
       .then(gif => gif.blob());
@@ -704,7 +742,7 @@ function startFavourites(icon) {
   const iconWrapper = icon.parentElement;
   const overlay = iconWrapper.parentElement;
   const gif = overlay.previousElementSibling;
-  favedGifs.push(gif.id);
+  favedGifs.unshift(gif.id);
   gif.classList.add("faved-gif");
   icon.src = "images/icon-fav-active.svg";
   localStorage.setItem("faved-gifs", JSON.stringify(favedGifs));
@@ -719,7 +757,7 @@ function addOrRemoveFavourites(icon) {
   const findIndex = storedGifsArray.findIndex(gifId => gifId === gif.id);
   
   if (findIndex === -1) { //NO ENCUENTRA ID, LO AGREGA A FAV
-    storedGifsArray.push(gif.id);
+    storedGifsArray.unshift(gif.id);
     gif.classList.add("faved-gif");
     icon.src = "images/icon-fav-active.svg";
     localStorage.setItem("faved-gifs", JSON.stringify(storedGifsArray));
@@ -772,7 +810,7 @@ function startFavsMobile(icon) {
   const favedGifs = [];
   const overlay = icon.parentElement;
   const maxedGif = overlay.previousElementSibling;
-  favedGifs.push(maxedGif.id);
+  favedGifs.unshift(maxedGif.id);
   maxedGif.classList.add("faved-gif");
   icon.src = "images/icon-fav-active.svg";
   localStorage.setItem("faved-gifs", JSON.stringify(favedGifs));
@@ -786,7 +824,7 @@ function addOrRemoveFavsMobile(icon) {
   const findIndex = storedGifsArray.findIndex(gifId => gifId === maxedGif.id);
   
   if (findIndex === -1) { //NO ENCUENTRA ID, LO AGREGA A FAV
-    storedGifsArray.push(maxedGif.id);
+    storedGifsArray.unshift(maxedGif.id);
     maxedGif.classList.add("faved-gif");
     icon.src = "images/icon-fav-active.svg";
     localStorage.setItem("faved-gifs", JSON.stringify(storedGifsArray));
@@ -835,7 +873,7 @@ function startFavsMaxed(icon) {
   const favedGifs = [];
   const overlay = icon.parentElement; //esto saqué ahora para probar
   const gif = overlay.previousElementSibling;
-  favedGifs.push(gif.id);
+  favedGifs.unshift(gif.id);
   gif.classList.add("faved-gif");
   localStorage.setItem("faved-gifs", JSON.stringify(favedGifs));
 }
@@ -848,7 +886,7 @@ function addOrRemoveFavsMaxed(icon) {
   const findIndex = storedGifsArray.findIndex(gifId => gifId === gif.id);
   
   if (findIndex === -1) { //NO ENCUENTRA ID, LO AGREGA A FAV
-    storedGifsArray.push(gif.id);
+    storedGifsArray.unshift(gif.id);
     gif.classList.add("faved-gif");
     localStorage.setItem("faved-gifs", JSON.stringify(storedGifsArray));
     console.log(storedGifsArray);

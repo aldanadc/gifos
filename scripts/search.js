@@ -68,6 +68,8 @@ function createGifs(results, dataLength) {
     createGifInfo(gifOverlay, results.data[i]);
   }
 
+  //displayIconsOnHover();
+
   changeIconsOnHover();
 
   addAndRemoveFavourites();

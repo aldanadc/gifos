@@ -3,6 +3,7 @@ body {
   main {
     #mis-gifos-section {
       width: 100%;
+      
       h2 {
         color: $purple;
         text-align: center;
@@ -13,7 +14,6 @@ body {
   
       .flex-wrapper {
         width: 100%;
-        margin-bottom: 53px;
   
         #mis-gifos-no-content {
           width: 100%;
@@ -97,10 +97,10 @@ body {
           //   background-color: $purple06opacity;
           // }
         }
+      }
 
-        .ver-mas {
-          margin-bottom: 76px;
-        }
+      #ver-mas-my-gifs {
+        margin-bottom: 78px;
       }
     }
   }
@@ -114,6 +114,8 @@ body {
 
     main {
       #mis-gifos-section {
+        margin-top: 111px;
+
         h2 {
           font-size: 1.5625rem;
           line-height: 1.875rem;
@@ -122,7 +124,6 @@ body {
   
         .flex-wrapper {
           //width: 100%;
-          //margin-bottom: 53px;
   
           #mis-gifos-no-content {
             img {

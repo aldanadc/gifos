@@ -89,7 +89,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
       })
 
     .catch(function errorCallback() {
-        alert("Algo falló al intentar acceder a tu cámara, por favor recarga la página para intentar de nuevo");
+        alert("Algo falló al intentar acceder a tu cámara, por favor revisa que no esté en uso o recarga la página para intentar de nuevo");
     })
   }
 
@@ -193,7 +193,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     console.log(myGifId);
     
     setTimeout(() => {
-      overlayImg.src = "/images/ok.svg";
+      overlayImg.src = "images/ok.svg";
       overlayP.textContent = "GIFO subido con éxito";
       gifIcons.style.visibility = "visible";
       uploadBtn.classList.add("hidden");
@@ -260,7 +260,8 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
   async function downloadCreatedGif() {
     const blob = await fetch(createdGifImg.src)
       .then(gif => gif.blob());
-      invokeSaveAsDialog(blob, `tuGif.gif`);
+      invokeSaveAsDialog(blob, `tuGif.gif`)
+      .catch(e => console.log(e));
   }
 
   //ASIGNAR FUNCIONES A ÍCONOS
@@ -334,7 +335,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     const instaIcon = document.getElementById("insta-icon");
 
     facebookIcon.addEventListener("mouseenter", () => {
-      facebookIcon.src = "images/icon_facebook_hover.svg";
+      facebookIcon.src = "images/icon_facebook_noc.svg";
     })
 
     facebookIcon.addEventListener("mouseout", () => {
@@ -342,7 +343,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     })
 
     twitterIcon.addEventListener("mouseenter", () => {
-      twitterIcon.src = "images/icon-twitter-hover.svg";
+      twitterIcon.src = "images/icon_twitter_noc.svg";
     })
 
     twitterIcon.addEventListener("mouseout", () => {
@@ -350,7 +351,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
     })
 
     instaIcon.addEventListener("mouseenter", () => {
-      instaIcon.src = "images/icon_instagram-hover.svg";
+      instaIcon.src = "images/icon_instagram_noc.svg";
     })
 
     instaIcon.addEventListener("mouseout", () => {

@@ -140,14 +140,11 @@ body {
 
         #trend-gif-wrapper {
           margin-left: 22px;
-          //margin-right: -7px;
           display: flex;
           flex-direction: row;
           overflow-x: auto;
           scroll-snap-type: x mandatory;
           scroll-behavior: smooth;
-          //max-width: 100%;
-          max-width: 1137px;
 
           .gif-container {
             scroll-snap-align: center;
@@ -236,7 +233,7 @@ body {
         font-size: 2.1875rem;
         line-height: 3.125rem;
         width: 40%;
-        margin: 171px auto 24px auto;
+        margin: 271px auto 24px auto;
 
         .line-break {
           display: inline;
@@ -305,21 +302,22 @@ body {
           width: 100%;
           justify-content: center;
           margin: auto;
-          padding-left: 6.5%;
-          padding-right: 6.5%;
+          padding: 0 4% 0 4%;
+          //padding-left: 6.5%;
+          //padding-right: 6.5%;
 
           #btn-slider-left,
           #btn-slider-right {
             display: inline;
           }
 
-          #btn-slider-left {
-            margin-right: 22px;
-          }
+          // #btn-slider-left {
+          //   margin-right: 22px;
+          // }
 
-          #btn-slider-right {
-            margin-left: 22px;
-          }
+          // #btn-slider-right {
+          //   margin-left: 22px;
+          // }
 
           #btn-slider-left:hover,
           #btn-slider-right:hover {
@@ -330,8 +328,9 @@ body {
             overflow-x: hidden;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
-            margin-left: 0;
-            margin-right: 0;
+            margin-left: 22px;
+            margin-right: 22px;
+            max-width: 1115px;
 
             .gif-container {
               position: relative;
@@ -345,7 +344,6 @@ body {
                 margin-right: 0;
                 width: 357px;
                 height: 275px;
-                //object-fit: cover;
               }
 
               .gif-overlay {
@@ -369,21 +367,6 @@ body {
                   position: absolute;
                   left: 230px;
                   top: 10px;
-
-                  // .fav-icon,
-                  // .download-icon,
-                  // .max-icon {
-                  //   height: 32px;
-                  //   width: 32px;
-                  //   opacity: 0.7;
-                  // }
-
-                  // .fav-icon:hover,
-                  // .download-icon:hover,
-                  // .max-icon:hover {
-                  //   opacity: 1;
-                  //   cursor: pointer;
-                  // }
                 }
 
                 .gif-user,
@@ -444,13 +427,13 @@ body {
           }
         }
       }
-      #trending-section {
-        #trending-wrapper {
-          #btn-slider-right {
-            margin-left: 0px;
-          }
-        }
-      }
+      // #trending-section {
+      //   #trending-wrapper {
+      //     #btn-slider-right {
+      //       margin-left: 0px;
+      //     }
+      //   }
+      // }
     }
   }
 }

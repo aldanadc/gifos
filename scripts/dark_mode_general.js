@@ -13,8 +13,8 @@ function setMode() {
     logo.src = "images/Logo-modo-noc.svg";
     createBtn.src = "images/CTA-crear-gifo-modo-noc.svg";
     burger.src = "images/burger-modo-noct.svg";
-    topBottomLine[0].style.backgroundColor = "#000";
-    topBottomLine[1].style.backgroundColor = "#000";
+    //topBottomLine[0].style.backgroundColor = "#000";
+    //topBottomLine[1].style.backgroundColor = "#000";
     sliderRight.src = "images/button-slider-right-md-noct.svg";
     sliderLeft.src = "images/button-slider-left-md-noct.svg";
 
@@ -31,8 +31,8 @@ function setMode() {
     logo.src = "images/logo-mobile.svg";
     burger.src = "images/burger.svg";
     createBtn.src = "images/button-crear-gifo.svg";
-    topBottomLine[0].style.backgroundColor = "#572EE5";
-    topBottomLine[1].style.backgroundColor = "#572EE5";
+    //topBottomLine[0].style.backgroundColor = "#572EE5";
+    //topBottomLine[1].style.backgroundColor = "#572EE5";
     sliderRight.src = "images/Button-Slider-right.svg";
     sliderLeft.src = "images/button-slider-left.svg";
 

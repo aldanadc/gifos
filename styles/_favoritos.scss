@@ -18,6 +18,7 @@ body {
   
       .flex-wrapper {
         width: 100%;
+        //justify-content: center;
         //margin-bottom: 57px;
   
         #fav-no-content {
@@ -40,13 +41,15 @@ body {
         }
   
         #fav-with-content {
-          padding: 0 4% 53px 4%;
-          max-width: 600px;
+          //padding-bottom: 53px;
+          padding: 0 2% 53px 2%;
+          //padding: 0 4% 53px 4%;
+          max-width: 750px;
 
           .gif-container {
             position: relative;
-            margin: 0 10px 22px 0;
-            //margin-bottom: 25px;
+            //margin: 0 10px 22px 0;
+            margin: 0 10px 22px 10px;
 
             .faved-gifs {
               width: 156px;
@@ -61,11 +64,11 @@ body {
             }
           }
         }
+      }
 
-        // #ver-mas-favs {
-        //   margin-bottom: 78px;
-        //   display: none;
-        // }
+      #ver-mas-favs {
+        margin-bottom: 78px;
+        //display: none;
       }
     }
   }
@@ -83,6 +86,7 @@ body {
     // }
     main {
       #fav-section {
+        margin-top: 111px;
         .section-icon {
           margin-top: 11px;
         }
@@ -95,27 +99,25 @@ body {
         }
   
         .flex-wrapper {
+          //justify-content: center;
           #fav-no-content {
-            width: 100%;
   
             img {
-              display: block;
-              margin: 0 auto 23px auto;
               width: 150px;
             }
   
             p {
               width: 30%;
-              text-align: center;
               font-size: 1.375rem;
               line-height: 1.875rem;
-              margin: 0 auto 137px auto;
             }
           }
   
           #fav-with-content {
             max-width: 1150px;
             padding: 0 5% 78px 5%;
+            //padding: 0 0 78px 0;
+            //margin: auto;
 
             .gif-container {
               width: 260px;
@@ -189,6 +191,7 @@ body {
           #fav-with-content {
             max-width: 1350px;
             padding: 0 3% 78px 3%;
+            //padding: 0 0 78px 0;
           }
         }
       }

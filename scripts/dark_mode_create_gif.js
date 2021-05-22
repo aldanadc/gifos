@@ -21,8 +21,8 @@ function darkModeCreateGif() {
     logo.src = "images/Logo-modo-noc.svg";
     createBtn.src = "images/CTA-crear-gifo-active.svg";
     burger.src = "images/burger-modo-noct.svg";
-    topBottomLine[0].style.backgroundColor = "#000";
-    topBottomLine[1].style.backgroundColor = "#000";
+    //topBottomLine[0].style.backgroundColor = "#000";
+    //topBottomLine[1].style.backgroundColor = "#000";
     cameraImg.src = "images/camara-modo-noc.svg";
     filmRoll1.src = "images/element_cinta1-modo-noc.svg";
     filmRoll2.src = "images/element_cinta2-modo-noc.svg";
@@ -33,8 +33,8 @@ function darkModeCreateGif() {
     logo.src = "images/logo-mobile.svg";
     createBtn.src = "images/CTA-crear-gifo-active.svg";
     burger.src = "images/burger.svg";
-    topBottomLine[0].style.backgroundColor = "#572EE5";
-    topBottomLine[1].style.backgroundColor = "#572EE5";
+    //topBottomLine[0].style.backgroundColor = "#572EE5";
+    //topBottomLine[1].style.backgroundColor = "#572EE5";
     cameraImg.src = "images/element-camara.svg";
     filmRoll1.src = "images/element_cinta1.svg";
     filmRoll2.src = "images/element_cinta2.svg";

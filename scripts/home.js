@@ -64,7 +64,10 @@ function searchGifs(inputValue) {
         top: scrollToPoint,
         behavior: 'smooth'
       });
-    })
+    }).catch(e => {
+      console.log(e)
+      noResults();
+    }); 
 }
 
 
@@ -78,16 +81,6 @@ const loadMoreGifs = (input) => {
     return data;
   }
 
-  // getMoreGifs(input.value)
-  //   .then(results => {
-  //     if (results.data.length === 12) {
-  //       createGifs(results, 12);
-  //     } else { //SI EL NUEVO ARRAY TRAE MENOS DE 12
-  //       createGifs(results, results.data.length)
-  //       verMas.style.display = "none";
-  //     }
-  //   });
-
   getMoreGifs(input.value)
     .then(results => {
       if (results.data.length === 12) {
@@ -96,7 +89,7 @@ const loadMoreGifs = (input) => {
         displayGifs(results);
         verMas.style.display = "none";
       }
-    });
+    }).catch(e => console.log(e));
 }
 
 //MOSTRAR SUGERENCIAS AL ESCRIBIR EN INPUT
@@ -127,7 +120,7 @@ let showSuggestions = () => {
 
       createSuggestions(suggestions);
 
-    });
+    }).catch(e => console.log(e));
 }
 
 
