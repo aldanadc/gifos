@@ -105,6 +105,8 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
         
         displayTrendingGifs(data, 1);
 
+        downloadGif();
+
         maxGif(); 
 
         addAndRemoveFavourites();
