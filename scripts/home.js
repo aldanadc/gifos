@@ -152,7 +152,7 @@ topInput.addEventListener("keyup", (event) => {
 const topMagGlass = document.querySelector(".top-search-icon");
 
 topMagGlass.addEventListener("click", () => {
-  searchGifs(topInput);
+  searchGifs(topInput.value);
   topMagGlass.style.marginTop = 0;
   input.value = "";
   cancelSearch();
