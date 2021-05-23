@@ -12,7 +12,7 @@ Tecnologías y recursos utilizados / Technologies and resources used:
 
 * HTML
 * CSS / SASS
-* JS
+* JavaScript
 * Google Fonts
 * Giphy API
 * RecordRTC
