@@ -9,6 +9,7 @@ function setDarkModeHome() {
   } else {
     input.style.color = "#000";
     magGlass.src = "images/icon-search.svg";
+    topMagGlass.src = "images/icon-search.svg";
   }
 }
 

@@ -610,7 +610,7 @@ body main #trending-section #trending-wrapper #trend-gif-wrapper .gif-container 
     visibility: hidden;
   }
   body header #nav .search-wrapper .search-icon, body header #nav .search-wrapper .top-search-icon {
-    margin-left: 20%;
+    margin-left: 18%;
     width: 20px;
     height: 20px;
   }
